@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-05-22 16:33 UTC</title>
+<title>BF-L Daily — 2026-05-22 16:45 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,6 +292,99 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   .fg-badge { border-right: none; border-bottom: 1px solid var(--rule); }
 }
 
+/* Council of agents */
+.council { border: 1px solid var(--rule); margin: 0 0 28px;
+  background: var(--bg); }
+.council-head { display: flex; justify-content: space-between;
+  align-items: center; padding: 14px 22px;
+  border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.council-head .eyebrow { font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-mute); }
+.council-meta { font-size: 0.74rem; color: var(--ink-mute);
+  letter-spacing: 0.04em; font-style: italic; }
+
+.council-verdict { display: grid; grid-template-columns: 220px 1fr;
+  gap: 0; border-bottom: 1px solid var(--rule); }
+.cv-left { padding: 22px 24px; border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--bg-soft); gap: 4px; }
+.cv-label { font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); margin-bottom: 2px; }
+.cv-score { font-size: 2.4rem; font-weight: 700; line-height: 1;
+  letter-spacing: -0.02em; }
+.cv-100 { font-size: 0.9rem; color: var(--ink-mute); font-weight: 400; }
+.cv-tag { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.05em; }
+
+.cv-mid { padding: 18px 24px; display: flex; flex-direction: column;
+  justify-content: center; gap: 14px; }
+.cv-bar { display: flex; flex-direction: column; gap: 6px; }
+.cv-bar-track { position: relative; height: 16px;
+  background: linear-gradient(to right,
+    oklch(0.45 0.155 28 / 0.18) 0%,
+    oklch(0.45 0.155 28 / 0.05) 38%,
+    oklch(0.55 0.082 80 / 0.05) 50%,
+    oklch(0.42 0.115 145 / 0.05) 62%,
+    oklch(0.42 0.115 145 / 0.18) 100%);
+  border: 1px solid var(--rule); }
+.cv-bar-grid { position: absolute; inset: 0;
+  background-image: linear-gradient(to right,
+    transparent calc(50% - 0.5px), var(--ink-mute) calc(50% - 0.5px),
+    var(--ink-mute) calc(50% + 0.5px), transparent calc(50% + 0.5px)); }
+.cv-bar-marker { position: absolute; top: -3px; bottom: -3px;
+  width: 4px; transform: translateX(-50%); border-radius: 0; }
+.cv-bar-labels { display: flex; justify-content: space-between;
+  font-size: 0.68rem; letter-spacing: 0.08em; color: var(--ink-mute);
+  text-transform: uppercase; }
+.cv-summary { font-size: 0.94rem; color: var(--ink-soft); }
+.cv-tally { display: flex; gap: 18px; flex-wrap: wrap;
+  font-size: 0.84rem; color: var(--ink-mute); letter-spacing: 0.02em; }
+.cv-tally .tally-long { color: var(--pos); font-weight: 600; }
+.cv-tally .tally-short { color: var(--neg); font-weight: 600; }
+.cv-tally .tally-agree { margin-left: auto; color: var(--ink); font-weight: 600;
+  letter-spacing: 0.04em; }
+
+.council-cards { display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 0; }
+.council-card { padding: 16px 18px; border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule); border-left: 3px solid var(--neu);
+  display: flex; flex-direction: column; gap: 10px;
+  background: var(--bg); }
+.council-card:nth-child(3n) { border-right: none; }
+.council-card:nth-last-child(-n+3) { border-bottom: none; }
+.cc-head { display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 10px; }
+.cc-icon { font-size: 1.4rem; line-height: 1; }
+.cc-title { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.cc-name { font-size: 0.96rem; font-weight: 600; line-height: 1.2;
+  letter-spacing: -0.005em; }
+.cc-horizon { font-size: 0.66rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); }
+.cc-bias { text-align: right; display: flex; flex-direction: column;
+  gap: 1px; }
+.cc-bias-label { font-size: 0.86rem; font-weight: 700;
+  letter-spacing: 0.04em; }
+.cc-conv { font-size: 0.7rem; color: var(--ink-mute);
+  font-variant-numeric: tabular-nums; }
+.cc-signal, .cc-rec { font-size: 0.88rem; line-height: 1.45;
+  color: var(--ink-soft); }
+.cc-signal { border-top: 1px solid var(--rule); padding-top: 8px; }
+.cc-k { display: block; font-size: 0.64rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute);
+  margin-bottom: 3px; font-weight: 500; }
+
+@media (max-width: 980px) {
+  .council-verdict { grid-template-columns: 1fr; }
+  .cv-left { border-right: none; border-bottom: 1px solid var(--rule); }
+  .council-cards { grid-template-columns: 1fr 1fr; }
+  .council-card { border-right: 1px solid var(--rule); }
+  .council-card:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .council-card:nth-child(2n) { border-right: none; }
+}
+@media (max-width: 600px) {
+  .council-cards { grid-template-columns: 1fr; }
+  .council-card { border-right: none !important; }
+}
+
 /* Coin search */
 .coin-search { border: 1px solid var(--rule); padding: 22px 24px;
   margin: 0 0 24px; background: var(--bg); }
@@ -336,11 +429,12 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-05-22 16:33 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-05-22 16:45 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
     <a href="#sec-market" data-toc>Рынок</a>
+    <a href="#sec-council" data-toc>Консилиум</a>
     <a href="#sec-strategy" data-toc>Стратегия</a>
     <a href="#sec-signals" data-toc>Сигналы</a>
     <a href="#sec-open" data-toc>Открытые</a>
@@ -543,6 +637,141 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   render(initial ? initial.getAttribute('data-view') : '90d');
 })();
 </script>
+</section>
+
+  <section id="sec-council" class="anchor">
+<section class="council">
+  <div class="council-head">
+    <div class="eyebrow">Консилиум · 6 агентов</div>
+    <div class="council-meta">heuristic, обновляется при каждой генерации дашборда</div>
+  </div>
+
+  <div class="council-verdict">
+    <div class="cv-left">
+      <div class="cv-label">Сводный вердикт</div>
+      <div class="cv-score num" style="color:var(--neg);">-20<span class="cv-100">/100</span></div>
+      <div class="cv-tag" style="color:var(--neg);">SHORT</div>
+    </div>
+    <div class="cv-mid">
+      <div class="cv-bar">
+        <div class="cv-bar-track">
+          <div class="cv-bar-grid"></div>
+          <div class="cv-bar-marker" style="left:39.9%; background:var(--neg);"></div>
+        </div>
+        <div class="cv-bar-labels">
+          <span>−100 STRONG SHORT</span>
+          <span>0</span>
+          <span>+100 STRONG LONG</span>
+        </div>
+      </div>
+      <div class="cv-summary">4/6 за «neutral» (большинство). Композит: -20/100.</div>
+      <div class="cv-tally">
+        <span class="tally-long">⬆ long 0</span>
+        <span class="tally-neutral">→ neutral 4</span>
+        <span class="tally-short">⬇ short 2</span>
+        <span class="tally-agree">consensus 67%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="council-cards">
+<div class="council-card" style="border-left-color:var(--neg);">
+  <div class="cc-head">
+    <span class="cc-icon">📈</span>
+    <div class="cc-title">
+      <div class="cc-name">CTA trend-follower</div>
+      <div class="cc-horizon">swing</div>
+    </div>
+    <div class="cc-bias" style="color:var(--neg);">
+      <div class="cc-bias-label">↓ SHORT</div>
+      <div class="cc-conv num">conv 72</div>
+    </div>
+  </div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>EMA50 < EMA200 (-5.9%), slope50 +0.19%/день</div>
+  <div class="cc-rec"><span class="cc-k">рекомендация</span>Без лонгов. Тренд вниз: продажи на отскоках к EMA50, цель — нижняя граница канала.</div>
+</div>
+
+<div class="council-card" style="border-left-color:var(--neu);">
+  <div class="cc-head">
+    <span class="cc-icon">🔁</span>
+    <div class="cc-title">
+      <div class="cc-name">Mean-reversion swinger</div>
+      <div class="cc-horizon">swing</div>
+    </div>
+    <div class="cc-bias" style="color:var(--neu);">
+      <div class="cc-bias-label">→ NEUTRAL</div>
+      <div class="cc-conv num">conv 37</div>
+    </div>
+  </div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>RSI 38 в зоне 40-60 — без преимущества для mean-reversion</div>
+  <div class="cc-rec"><span class="cc-k">рекомендация</span>Ждать экстремумов (RSI<30 или >70) для входа.</div>
+</div>
+
+<div class="council-card" style="border-left-color:var(--neg);">
+  <div class="cc-head">
+    <span class="cc-icon">🚀</span>
+    <div class="cc-title">
+      <div class="cc-name">Breakout momentum</div>
+      <div class="cc-horizon">swing</div>
+    </div>
+    <div class="cc-bias" style="color:var(--neg);">
+      <div class="cc-bias-label">↓ SHORT</div>
+      <div class="cc-conv num">conv 49</div>
+    </div>
+  </div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>В нижней трети 20-дневного канала (17%) — риск пробоя вниз</div>
+  <div class="cc-rec"><span class="cc-k">рекомендация</span>Не покупать. Готовить short-сетап ниже low20.</div>
+</div>
+
+<div class="council-card" style="border-left-color:var(--neu);">
+  <div class="cc-head">
+    <span class="cc-icon">💧</span>
+    <div class="cc-title">
+      <div class="cc-name">Market-maker (liquidity)</div>
+      <div class="cc-horizon">intraday</div>
+    </div>
+    <div class="cc-bias" style="color:var(--neu);">
+      <div class="cc-bias-label">→ NEUTRAL</div>
+      <div class="cc-conv num">conv 30</div>
+    </div>
+  </div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>Funding 0.004%/8h в нейтральном диапазоне</div>
+  <div class="cc-rec"><span class="cc-k">рекомендация</span>Нет crowding-сигнала. Можно торговать на чистом TA.</div>
+</div>
+
+<div class="council-card" style="border-left-color:var(--neu);">
+  <div class="cc-head">
+    <span class="cc-icon">⚡</span>
+    <div class="cc-title">
+      <div class="cc-name">Volatility trader</div>
+      <div class="cc-horizon">macro</div>
+    </div>
+    <div class="cc-bias" style="color:var(--neu);">
+      <div class="cc-bias-label">→ NEUTRAL</div>
+      <div class="cc-conv num">conv 25</div>
+    </div>
+  </div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>ATR% 2.38%/день — высокая волатильность (базовый 1.48%)</div>
+  <div class="cc-rec"><span class="cc-k">рекомендация</span>Vol expansion — обычно после exhaustion. Уменьшить плечо, ждать сжатия для входа.</div>
+</div>
+
+<div class="council-card" style="border-left-color:var(--neu);">
+  <div class="cc-head">
+    <span class="cc-icon">🌍</span>
+    <div class="cc-title">
+      <div class="cc-name">Macro regime allocator</div>
+      <div class="cc-horizon">macro</div>
+    </div>
+    <div class="cc-bias" style="color:var(--neu);">
+      <div class="cc-bias-label">→ NEUTRAL</div>
+      <div class="cc-conv num">conv 40</div>
+    </div>
+  </div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>Коррекция в нисходящем боковике, breadth 12%</div>
+  <div class="cc-rec"><span class="cc-k">рекомендация</span>Без позиции в альтах. BTC только на отскоках с тайтовым стопом.</div>
+</div>
+</div>
+</section>
 </section>
 
   <section id="sec-strategy" class="anchor">
