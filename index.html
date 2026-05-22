@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-05-22 11:28 UTC</title>
+<title>BF-L Daily — 2026-05-22 11:41 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,14 +112,85 @@ table.tbl tr.skip { opacity: 0.55; }
 .warn { background: oklch(0.94 0.06 25 / 0.4); border-left: 4px solid var(--neg);
   padding: 14px 18px; margin: 16px 0; }
 .warn strong { color: var(--neg); }
+
+/* Strategy intro */
+.intro { display: grid; grid-template-columns: 180px 1fr; gap: 32px;
+  padding: 22px 24px; margin: 0 0 20px;
+  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.intro .eyebrow { font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-mute);
+  padding-top: 2px; }
+.intro p { margin: 0 0 0.6em; max-width: 60ch; }
+.intro p:last-child { margin-bottom: 0; }
+.intro p.lede { font-size: 1.08rem; font-weight: 500; }
+.intro p.muted { color: var(--ink-soft); font-size: 0.95rem; }
+@media (max-width: 720px) { .intro { grid-template-columns: 1fr; gap: 8px; } }
+
+/* Activity block */
+.activity { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  border: 1px solid var(--rule); margin: 16px 0 8px; }
+.activity > div { padding: 14px 16px; border-right: 1px solid var(--rule); }
+.activity > div:last-child { border-right: none; }
+.activity .label { font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); margin-bottom: 6px; }
+.activity .value { font-size: 1.4rem; font-weight: 600; line-height: 1;
+  letter-spacing: -0.01em; }
+.activity .sub { font-size: 0.78rem; color: var(--ink-soft); margin-top: 4px; }
+@media (max-width: 720px) {
+  .activity { grid-template-columns: repeat(2, 1fr); }
+  .activity > div { border-bottom: 1px solid var(--rule); }
+}
+
+.activity-context { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  margin: 12px 0 24px; font-size: 0.92rem; color: var(--ink-soft); }
+.activity-context strong { color: var(--ink); }
+@media (max-width: 720px) { .activity-context { grid-template-columns: 1fr; } }
+
+/* Footer "how it works" — paper trading explanation */
+.howitworks { background: var(--bg-soft); padding: 28px 28px 32px;
+  margin: 56px 0 24px; border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule); }
+.howitworks h3 { margin: 0 0 16px; font-size: 1.1rem; font-weight: 700;
+  letter-spacing: -0.01em; }
+.howitworks .grid { display: grid; grid-template-columns: 1fr 1fr;
+  gap: 28px; }
+.howitworks h4 { margin: 0 0 10px; font-size: 0.74rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); font-weight: 500; }
+.howitworks p { margin: 0 0 .6em; font-size: 0.94rem; max-width: 50ch; }
+.howitworks .num { font-variant-numeric: tabular-nums; font-weight: 600; }
+@media (max-width: 760px) { .howitworks .grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-05-22 11:28 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-05-22 11:41 UTC · refresh каждые 5 мин</div>
   </div>
+
+  
+<div class="intro">
+  <div class="eyebrow">О стратегии</div>
+  <div>
+    <p class="lede">
+      <strong>BF-L 1D</strong> — пробой бычьего флага на дневном графике.
+      Флагшток ≥10% → откат до 50% флагштока с касанием нисходящей линии
+      ≥2 раза → пробой верхней линии с объёмом → target = высота флагштока,
+      проецируемая от точки пробоя.
+    </p>
+    <p class="muted">
+      Из 7 видео-уроков выписали 4 ключевых правила и прогнали бэк-тест на 5 лет ×
+      152 USDT-парах × 2 таймфрейма (1D / 4H) = 8 комбинаций.
+      Edge подтвердился только у BF-L 1D (avg R&nbsp;+0.466, CI95&nbsp;[+0.286, +0.660],
+      n=375). Остальные правила (FIB-L, ML-L, OB-L) и 4H-таймфреймы либо дали
+      0, либо систематически проигрывали. Cross-validated на Bybit: avg R&nbsp;+0.315.
+    </p>
+    <p class="muted">
+      Это <strong>снайперская</strong> стратегия: 0.5 сигнала на монету в год
+      исторически. Большинство дней — пусто. Это feature, не bug.
+    </p>
+  </div>
+</div>
 
   
 <div class="row">
@@ -140,6 +211,46 @@ table.tbl tr.skip { opacity: 0.55; }
   </div>
 </div>
 
+  
+<h2 style="margin-top: 36px;">Signal activity · universe 152 монет</h2>
+<div class="activity num">
+  <div>
+    <div class="label">Сегодня</div>
+    <div class="value">1</div>
+    <div class="sub">за 1 день</div>
+  </div>
+  <div>
+    <div class="label">Неделя</div>
+    <div class="value">1</div>
+    <div class="sub">1 монет</div>
+  </div>
+  <div>
+    <div class="label">Месяц</div>
+    <div class="value">4</div>
+    <div class="sub">4 монет</div>
+  </div>
+  <div>
+    <div class="label">Квартал</div>
+    <div class="value">7</div>
+    <div class="sub">7 монет</div>
+  </div>
+  <div>
+    <div class="label">Сейчас vs baseline</div>
+    <div class="value" style="color:var(--neg);">0.078/д</div>
+    <div class="sub">×6.3 медленнее baseline</div>
+  </div>
+</div>
+<div class="activity-context">
+  <div>
+    <strong>Backtest baseline:</strong> 449 сигналов за 5.3 года =
+    <strong>0.49/день</strong> в среднем.
+    Лучший год — <strong>2024</strong> (101 сигналов).
+  </div>
+  <div>
+    <div style="margin: 4px 0 12px;"><strong>Последние 3 сигнала по universe:</strong><br><span style="font-variant-numeric:tabular-nums; color:var(--ink-soft);">2026-05-21 · <strong style="color:var(--ink);">PENGU/USDT</strong> · R/R 3.69 · flagpole 101.0% · cleanliness 0.59</span><br><span style="font-variant-numeric:tabular-nums; color:var(--ink-soft);">2026-05-06 · <strong style="color:var(--ink);">POLYX/USDT</strong> · R/R 3.56 · flagpole 47.2% · cleanliness 0.55</span><br><span style="font-variant-numeric:tabular-nums; color:var(--ink-soft);">2026-05-04 · <strong style="color:var(--ink);">RENDER/USDT</strong> · R/R 5.91 · flagpole 89.0% · cleanliness 0.58</span><br></div>
+  </div>
+</div>
+
   <div class="warn"><strong>⚠ EDGE DECAY SUSPECTED.</strong> Rolling 12mo avg R = -0.1246. Backtest baseline +0.466. Rolling avg R -0.125 < threshold 0.10. Consider: (1) pause new entries, (2) reduce position size, (3) investigate regime shift, (4) retrain confidence model.</div>
 
   <h2>Свежие сигналы сегодня</h2>
@@ -151,10 +262,39 @@ table.tbl tr.skip { opacity: 0.55; }
   <h2>Последняя неделя · all signals</h2>
   <table class="tbl"><thead><tr><th>date</th><th>symbol</th><th>conf</th><th>OI</th><th>liq</th><th>rec</th><th>action</th></tr></thead><tbody><tr class="skip"><td>2026-05-21</td><td><strong>PENGU/USDT</strong></td><td>41</td><td>✗</td><td>organic</td><td>half_size</td><td><strong>skip</strong></td></tr></tbody></table>
 
-  <div style="margin-top:48px; font-size:0.82rem; color:var(--ink-mute);
+  
+<div class="howitworks">
+  <h3>Как работает paper-trading сейчас (важно понимать в режиме редких сигналов)</h3>
+  <div class="grid">
+    <div>
+      <h4>Что происходит автоматически</h4>
+      <p>Каждый ALERT (если все 12 фильтров пройдены) <strong>автоматически</strong>
+      записывается в журнал как открытая paper-сделка. Никаких действий руками
+      не нужно.</p>
+      <p>Каждый день <code>paper.journal update</code> проверяет, не дошла ли цена
+      до stop / TP1 / TP2 / invalidation, и закрывает сделку с расчётом R и PnL.</p>
+      <p>Слиппедж между ожидаемой entry-price и реальной (если бы лимит-ордер
+      исполнился позже) тоже трекается — это важная проверка edge в реальности.</p>
+    </div>
+    <div>
+      <h4>Что значит «редкие сигналы»</h4>
+      <p>Текущая частота: <span class="num">0.078/день</span> на universe из 152 монет.
+      Это значит, что для накопления <strong>n=30</strong> paper-сделок (минимум для
+      статистической оценки edge) при текущей частоте потребуется
+      <strong>~384 дней</strong>.</p>
+      <p>Historical baseline даёт ~75 сделок/год. При baseline-частоте n=30 за ~5 месяцев.
+      Сейчас edge просел и сигналов в 6× меньше, поэтому валидация будет долгой.</p>
+      <p><strong>Это нормально.</strong> Цель — терпеливо ждать. Не пытаться
+      «найти что-нибудь» подкрутив параметры. Большинство дней — пусто.</p>
+    </div>
+  </div>
+</div>
+
+
+  <div style="margin-top:24px; font-size:0.82rem; color:var(--ink-mute);
               text-align:center; border-top: 1px solid var(--rule); padding-top:20px;">
-    Source: <code>results/live/signals.db</code> · pipeline runs daily at 00:05 UTC ·
-    DO NOT REFRESH MANUALLY (page auto-refreshes every 5 min)
+    Cron: 09:00 МСК (новые сигналы) + 15:00 МСК (staleness re-check) ·
+    Page auto-refreshes every 5 min
   </div>
 </div>
 </body>
