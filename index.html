@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-05-22 16:45 UTC</title>
+<title>BF-L Daily — 2026-05-22 17:00 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -365,9 +365,36 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   letter-spacing: 0.04em; }
 .cc-conv { font-size: 0.7rem; color: var(--ink-mute);
   font-variant-numeric: tabular-nums; }
+.cc-meta { display: flex; gap: 12px; align-items: center;
+  font-size: 0.78rem; letter-spacing: 0.04em;
+  border-top: 1px solid var(--rule); padding-top: 8px;
+  color: var(--ink-mute); }
+.cc-hit { font-weight: 600; }
+.cc-hit-empty { color: var(--ink-mute); font-weight: 400;
+  font-style: italic; }
+.cc-hit-n { color: var(--ink-mute); font-weight: 400;
+  font-variant-numeric: tabular-nums; }
+.cc-weight { font-weight: 600; font-variant-numeric: tabular-nums; }
+
 .cc-signal, .cc-rec { font-size: 0.88rem; line-height: 1.45;
   color: var(--ink-soft); }
 .cc-signal { border-top: 1px solid var(--rule); padding-top: 8px; }
+
+.council-feedback { display: grid; grid-template-columns: 280px 1fr;
+  gap: 0; border-top: 1px solid var(--rule); background: var(--bg-soft); }
+.cf-left { padding: 14px 22px; border-right: 1px solid var(--rule);
+  display: flex; flex-direction: column; gap: 4px; }
+.cf-label { font-size: 0.66rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); }
+.cf-state { font-size: 0.92rem; color: var(--ink); font-weight: 500; }
+.cf-state strong { color: var(--pos); }
+.cf-right { padding: 14px 22px; display: flex; align-items: center; }
+.cf-explain { font-size: 0.86rem; color: var(--ink-soft);
+  line-height: 1.45; max-width: 70ch; }
+@media (max-width: 760px) {
+  .council-feedback { grid-template-columns: 1fr; }
+  .cf-left { border-right: none; border-bottom: 1px solid var(--rule); }
+}
 .cc-k { display: block; font-size: 0.64rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--ink-mute);
   margin-bottom: 3px; font-weight: 500; }
@@ -429,7 +456,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-05-22 16:45 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-05-22 17:00 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
@@ -687,6 +714,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
       <div class="cc-conv num">conv 72</div>
     </div>
   </div>
+  <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
   <div class="cc-signal"><span class="cc-k">сигнал</span>EMA50 < EMA200 (-5.9%), slope50 +0.19%/день</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Без лонгов. Тренд вниз: продажи на отскоках к EMA50, цель — нижняя граница канала.</div>
 </div>
@@ -703,6 +731,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
       <div class="cc-conv num">conv 37</div>
     </div>
   </div>
+  <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
   <div class="cc-signal"><span class="cc-k">сигнал</span>RSI 38 в зоне 40-60 — без преимущества для mean-reversion</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Ждать экстремумов (RSI<30 или >70) для входа.</div>
 </div>
@@ -719,6 +748,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
       <div class="cc-conv num">conv 49</div>
     </div>
   </div>
+  <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
   <div class="cc-signal"><span class="cc-k">сигнал</span>В нижней трети 20-дневного канала (17%) — риск пробоя вниз</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Не покупать. Готовить short-сетап ниже low20.</div>
 </div>
@@ -735,6 +765,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
       <div class="cc-conv num">conv 30</div>
     </div>
   </div>
+  <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
   <div class="cc-signal"><span class="cc-k">сигнал</span>Funding 0.004%/8h в нейтральном диапазоне</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Нет crowding-сигнала. Можно торговать на чистом TA.</div>
 </div>
@@ -751,6 +782,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
       <div class="cc-conv num">conv 25</div>
     </div>
   </div>
+  <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
   <div class="cc-signal"><span class="cc-k">сигнал</span>ATR% 2.38%/день — высокая волатильность (базовый 1.48%)</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Vol expansion — обычно после exhaustion. Уменьшить плечо, ждать сжатия для входа.</div>
 </div>
@@ -767,10 +799,28 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
       <div class="cc-conv num">conv 40</div>
     </div>
   </div>
+  <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
   <div class="cc-signal"><span class="cc-k">сигнал</span>Коррекция в нисходящем боковике, breadth 12%</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Без позиции в альтах. BTC только на отскоках с тайтовым стопом.</div>
 </div>
 </div>
+
+  <div class="council-feedback">
+    <div class="cf-left">
+      <div class="cf-label">Self-correction loop</div>
+      <div class="cf-state">
+        ⏳ ждём первой закрытой council-сделки
+      </div>
+    </div>
+    <div class="cf-right">
+      <div class="cf-explain">
+        Каждая closed council-сделка ретроспективно
+        атрибутирует «правильно/ошибочно» каждой персоне.
+        Hit-rate ≥ 8 сделок → веса автообновляются и применяются
+        к следующему расчёту композита.
+      </div>
+    </div>
+  </div>
 </section>
 </section>
 
