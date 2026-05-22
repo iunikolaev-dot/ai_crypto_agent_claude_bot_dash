@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-05-22 16:00 UTC</title>
+<title>BF-L Daily — 2026-05-22 16:15 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,10 +22,39 @@
   --neu: oklch(0.55 0.082 80);
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0; padding: 0; background: var(--bg); color: var(--ink);
   font-family: "Spectral", Georgia, serif; line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+}
+.anchor { scroll-margin-top: 84px; }
+
+/* Sticky table-of-contents nav */
+.toc-nav { position: sticky; top: 0; z-index: 50;
+  display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto;
+  margin: 0 -28px 28px; padding: 10px 28px;
+  background: oklch(0.972 0.012 75 / 0.92);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--rule);
+  scrollbar-width: none;
+}
+.toc-nav::-webkit-scrollbar { display: none; }
+.toc-nav a { flex: 0 0 auto; padding: 6px 14px;
+  font-size: 0.86rem; letter-spacing: 0.04em;
+  color: var(--ink-soft); text-decoration: none;
+  border: 1px solid transparent; border-radius: 999px;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  white-space: nowrap; font-weight: 500;
+}
+.toc-nav a:hover { color: var(--ink); background: var(--bg-soft);
+  border-color: var(--rule); }
+.toc-nav a.active { color: var(--bg); background: var(--ink);
+  border-color: var(--ink); font-weight: 600; }
+@media (max-width: 760px) {
+  .toc-nav { margin: 0 -16px 20px; padding: 8px 16px; }
+  .toc-nav a { padding: 5px 12px; font-size: 0.82rem; }
 }
 .num { font-variant-numeric: tabular-nums lining-nums; }
 .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 28px 80px; }
@@ -286,10 +315,21 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-05-22 16:00 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-05-22 16:15 UTC · refresh каждые 5 мин</div>
   </div>
 
-  
+  <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
+    <a href="#sec-market" data-toc>Рынок</a>
+    <a href="#sec-strategy" data-toc>Стратегия</a>
+    <a href="#sec-signals" data-toc>Сигналы</a>
+    <a href="#sec-open" data-toc>Открытые</a>
+    <a href="#sec-paper" data-toc>История</a>
+    <a href="#sec-search" data-toc>Поиск</a>
+    <a href="#sec-week" data-toc>Неделя</a>
+    <a href="#sec-how" data-toc>Как работает</a>
+  </nav>
+
+  <section id="sec-market" class="anchor">
 <section class="mkt">
   <div class="mkt-head">
     <div class="eyebrow">Рынок · BTC/USDT, 120 дней</div>
@@ -355,9 +395,10 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
     </div>
   </div>
 </section>
+</section>
 
-
-  
+  <section id="sec-strategy" class="anchor">
+    
 <div class="intro">
   <div class="eyebrow">О стратегии</div>
   <div>
@@ -381,7 +422,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   </div>
 </div>
 
-  
+    
 <div class="row">
   <div>
     <div class="label">Regime</div>
@@ -400,7 +441,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   </div>
 </div>
 
-  
+    
 <h2 style="margin-top: 36px;">Signal activity · universe 152 монет</h2>
 <div class="activity num">
   <div>
@@ -440,9 +481,10 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   </div>
 </div>
 
-  <div class="warn"><strong>⚠ Below backtest CI.</strong> Rolling 12mo avg R = 0.2011.</div>
+    <div class="warn"><strong>⚠ Below backtest CI.</strong> Rolling 12mo avg R = 0.2011.</div>
+  </section>
 
-  <h2>Свежие сигналы сегодня</h2>
+  <h2 id="sec-signals" class="anchor">Свежие сигналы сегодня</h2>
   
 <div class="alert-card med">
   <div class="top">
@@ -488,10 +530,10 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <h3 style="font-size:1rem; margin:24px 0 12px; text-transform:uppercase; letter-spacing:0.14em; color:var(--ink-mute); font-weight:500;">Отфильтрованные сегодня (1)</h3>
 <table class="tbl"><thead><tr><th>symbol</th><th>date</th><th>conf</th><th>OI</th><th>liq</th><th>action</th><th>reason</th></tr></thead><tbody><tr class="skip"><td><strong>PENGU/USDT</strong></td><td>2026-05-21</td><td>41</td><td><span class="pill" style="background:var(--neg); color:#fff;">✗</span></td><td>organic</td><td><strong style="color:var(--neg);">skip</strong></td><td style="color:var(--ink-soft); font-size:0.86rem;">OI verdict ✗ blocks entry</td></tr></tbody></table>
 
-  <h2>Open paper trades</h2>
+  <h2 id="sec-open" class="anchor">Open paper trades</h2>
   <table class="tbl"><thead><tr><th>symbol</th><th>entry date</th><th>entry</th><th>stop</th><th>TP1</th><th>TP2</th><th>OI@entry</th><th>id</th></tr></thead><tbody><tr><td><strong>ZEC/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>665.4466749999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_2a42834f</td></tr><tr><td><strong>TON/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>2.0741064999999996</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_f94e5f2d</td></tr><tr><td><strong>ONDO/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.4150215999999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_02b80e21</td></tr><tr><td><strong>RIF/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.0728090499999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_8865b01d</td></tr><tr><td><strong>JTO/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.5295932</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_4a541728</td></tr><tr><td><strong>INJ/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>5.259877999999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_f6f50030</td></tr><tr><td><strong>PENDLE/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>1.9058545</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_d8cff9ac</td></tr><tr><td><strong>NEAR/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>1.9298904999999995</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_47b4f1b5</td></tr><tr><td><strong>DASH/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>49.04345499999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_02d60b28</td></tr><tr><td><strong>BANANAS31/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.0125658204999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_6c07b1db</td></tr></tbody></table>
 
-  <h2>Paper-trading · история и динамика</h2>
+  <h2 id="sec-paper" class="anchor">Paper-trading · история и динамика</h2>
   <input type="radio" name="paper_period" id="paper_p_90d"><input type="radio" name="paper_period" id="paper_p_1y" checked><input type="radio" name="paper_period" id="paper_p_2y"><input type="radio" name="paper_period" id="paper_p_all"><div class="period-tabs"><label for="paper_p_90d" class="period-tab">90 дней<span class="period-badge">8</span></label><label for="paper_p_1y" class="period-tab">1 год<span class="period-badge">74</span></label><label for="paper_p_2y" class="period-tab">2 года<span class="period-badge">114</span></label><label for="paper_p_all" class="period-tab">Вся история<span class="period-badge">328</span></label></div><div class="period-view view-90d">
 <div style="background: var(--bg-soft); padding: 14px 20px; margin: 0 0 16px;
             border-left: 4px solid var(--pos); font-size:0.95rem;">
@@ -1070,7 +1112,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 </table>
 <table class="tbl"><thead><tr><th>exit date</th><th>symbol</th><th>reason</th><th>R</th><th>BF-L PnL</th><th>B&amp;H PnL</th><th>BF-L beat?</th><th>cum BF-L</th></tr></thead><tbody><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>HBAR/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.48</td><td style="color:var(--neg);">$-5.48</td><td style="color:var(--neg);">$-5.34</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-5.48</td></tr><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>SEI/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.47</td><td style="color:var(--neg);">$-5.76</td><td style="color:var(--neg);">$-5.62</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-11.24</td></tr><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>AAVE/USDT</strong></td><td>timeout</td><td style="color:var(--neg);">-0.33</td><td style="color:var(--neg);">$-5.37</td><td style="color:var(--neg);">$-5.23</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-16.61</td></tr><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>LINK/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.45</td><td style="color:var(--neg);">$-7.04</td><td style="color:var(--neg);">$-6.90</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-23.65</td></tr><tr><td>2025-10-10 00:00:00+00:00</td><td><strong>XLM/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.01</td><td style="color:var(--neg);">$-14.20</td><td style="color:var(--neg);">$-19.98</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-37.85</td></tr><tr><td>2025-10-10 00:00:00+00:00</td><td><strong>BCH/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.01</td><td style="color:var(--neg);">$-10.92</td><td style="color:var(--neg);">$-12.31</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-48.77</td></tr><tr><td>2026-01-07 00:00:00+00:00</td><td><strong>BAT/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.58</td><td style="color:var(--neg);">$-6.51</td><td style="color:var(--neg);">$-6.37</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-55.28</td></tr><tr><td>2026-01-08 00:00:00+00:00</td><td><strong>ZEC/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.65</td><td style="color:var(--neg);">$-18.49</td><td style="color:var(--neg);">$-18.36</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-73.77</td></tr><tr><td>2026-01-11 00:00:00+00:00</td><td><strong>GLM/USDT</strong></td><td>tp2</td><td style="color:var(--pos);">+2.50</td><td style="color:var(--pos);">$+28.57</td><td style="color:var(--pos);">$+38.63</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-45.20</td></tr><tr><td>2026-01-30 00:00:00+00:00</td><td><strong>GNO/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.07</td><td style="color:var(--neg);">$-2.21</td><td style="color:var(--neg);">$-3.55</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-47.41</td></tr><tr><td>2026-01-31 00:00:00+00:00</td><td><strong>LUNC/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.02</td><td style="color:var(--neg);">$-8.46</td><td style="color:var(--neg);">$-11.13</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-55.87</td></tr><tr><td>2026-02-05 00:00:00+00:00</td><td><strong>JST/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.77</td><td style="color:var(--neg);">$-5.72</td><td style="color:var(--neg);">$-5.58</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-61.59</td></tr><tr><td>2026-03-19 00:00:00+00:00</td><td><strong>JST/USDT</strong></td><td>tp2</td><td style="color:var(--pos);">+1.60</td><td style="color:var(--pos);">$+24.46</td><td style="color:var(--pos);">$+27.41</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-37.13</td></tr><tr><td>2026-04-15 00:00:00+00:00</td><td><strong>JST/USDT</strong></td><td>stop_be_after_tp1</td><td style="color:var(--pos);">+0.49</td><td style="color:var(--pos);">$+9.41</td><td style="color:var(--neg);">$-5.54</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-27.72</td></tr><tr><td>2026-04-16 00:00:00+00:00</td><td><strong>COW/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.02</td><td style="color:var(--neg);">$-7.63</td><td style="color:var(--neg);">$-4.70</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-35.35</td></tr><tr><td>2026-04-19 00:00:00+00:00</td><td><strong>RVN/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.49</td><td style="color:var(--neg);">$-4.28</td><td style="color:var(--neg);">$-4.14</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-39.63</td></tr><tr><td>2026-05-18 00:00:00+00:00</td><td><strong>POLYX/USDT</strong></td><td>stop_be_after_tp1</td><td style="color:var(--pos);">+0.85</td><td style="color:var(--pos);">$+8.31</td><td style="color:var(--pos);">$+1.02</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-31.32</td></tr><tr><td>2026-05-21 00:00:00+00:00</td><td><strong>RENDER/USDT</strong></td><td>timeout</td><td style="color:var(--pos);">+0.64</td><td style="color:var(--pos);">$+6.05</td><td style="color:var(--pos);">$+6.21</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-25.27</td></tr><tr><td>2026-05-21 00:00:00+00:00</td><td><strong>PENGU/USDT</strong></td><td>timeout</td><td style="color:var(--neg);">-0.02</td><td style="color:var(--neg);">$-0.30</td><td style="color:var(--neg);">$-0.15</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-25.57</td></tr><tr><td>2026-05-21 00:00:00+00:00</td><td><strong>KAITO/USDT</strong></td><td>timeout</td><td style="color:var(--pos);">+0.89</td><td style="color:var(--pos);">$+14.82</td><td style="color:var(--pos);">$+14.99</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-10.75</td></tr></tbody></table></div>
 
-  <h2>История сделок по монете</h2>
+  <h2 id="sec-search" class="anchor">История сделок по монете</h2>
   
 <div class="coin-search">
   <div class="cs-head">
@@ -1176,10 +1218,10 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 </script>
 
 
-  <h2>Последняя неделя · all signals</h2>
+  <h2 id="sec-week" class="anchor">Последняя неделя · all signals</h2>
   <table class="tbl"><thead><tr><th>date</th><th>symbol</th><th>conf</th><th>OI</th><th>liq</th><th>rec</th><th>action</th></tr></thead><tbody><tr class=""><td>2025-09-10</td><td><strong>BNB/USDT</strong></td><td>72</td><td>~</td><td>organic</td><td>normal</td><td><strong>alert</strong></td></tr><tr class="skip"><td>2026-05-21</td><td><strong>PENGU/USDT</strong></td><td>41</td><td>✗</td><td>organic</td><td>half_size</td><td><strong>skip</strong></td></tr></tbody></table>
 
-  
+  <div id="sec-how" class="anchor">
 <div class="howitworks">
   <h3>Как работает paper-trading сейчас (важно понимать в режиме редких сигналов)</h3>
   <div class="grid">
@@ -1206,7 +1248,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
     </div>
   </div>
 </div>
-
+</div>
 
   <div style="margin-top:24px; font-size:0.82rem; color:var(--ink-mute);
               text-align:center; border-top: 1px solid var(--rule); padding-top:20px;">
@@ -1214,5 +1256,45 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
     Page auto-refreshes every 5 min
   </div>
 </div>
+<script>
+(function() {
+  var links = document.querySelectorAll('.toc-nav a[data-toc]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var sections = [];
+  links.forEach(function(a) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) sections.push({ id: id, el: el, link: a });
+  });
+  function setActive(id) {
+    links.forEach(function(a) {
+      if (a.getAttribute('href') === '#' + id) a.classList.add('active');
+      else a.classList.remove('active');
+    });
+  }
+  var io = new IntersectionObserver(function(entries) {
+    // Pick the section whose top is closest to (but below) the nav bar
+    var best = null;
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        if (!best || e.boundingClientRect.top < best.boundingClientRect.top) {
+          best = e;
+        }
+      }
+    });
+    if (best) setActive(best.target.id);
+  }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+  sections.forEach(function(s) { io.observe(s.el); });
+  // Click → instant active
+  links.forEach(function(a) {
+    a.addEventListener('click', function() {
+      setActive(a.getAttribute('href').slice(1));
+    });
+  });
+  // Initial state from hash or first section
+  var initial = location.hash ? location.hash.slice(1) : (sections[0] && sections[0].id);
+  if (initial) setActive(initial);
+})();
+</script>
 </body>
 </html>
