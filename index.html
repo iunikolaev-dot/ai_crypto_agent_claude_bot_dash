@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-05-22 11:41 UTC</title>
+<title>BF-L Daily — 2026-05-22 11:47 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -165,7 +165,7 @@ table.tbl tr.skip { opacity: 0.55; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-05-22 11:41 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-05-22 11:47 UTC · refresh каждые 5 мин</div>
   </div>
 
   
@@ -254,10 +254,15 @@ table.tbl tr.skip { opacity: 0.55; }
   <div class="warn"><strong>⚠ EDGE DECAY SUSPECTED.</strong> Rolling 12mo avg R = -0.1246. Backtest baseline +0.466. Rolling avg R -0.125 < threshold 0.10. Consider: (1) pause new entries, (2) reduce position size, (3) investigate regime shift, (4) retrain confidence model.</div>
 
   <h2>Свежие сигналы сегодня</h2>
-  <div class="empty">Все 1 сегодняшних сигналов отфильтрованы (log_only или skip).</div>
+  <div class="empty" style="margin-bottom:24px;">Сегодня <strong>нет actionable алертов</strong> — все сетапы отфильтрованы. Это норма в режиме редких сигналов.</div>
+<h3 style="font-size:1rem; margin:24px 0 12px; text-transform:uppercase; letter-spacing:0.14em; color:var(--ink-mute); font-weight:500;">Отфильтрованные сегодня (1)</h3>
+<table class="tbl"><thead><tr><th>symbol</th><th>date</th><th>conf</th><th>OI</th><th>liq</th><th>action</th><th>reason</th></tr></thead><tbody><tr class="skip"><td><strong>PENGU/USDT</strong></td><td>2026-05-21</td><td>41</td><td><span class="pill" style="background:var(--neg); color:#fff;">✗</span></td><td>organic</td><td><strong style="color:var(--neg);">skip</strong></td><td style="color:var(--ink-soft); font-size:0.86rem;">OI verdict ✗ blocks entry</td></tr></tbody></table>
 
   <h2>Open paper trades</h2>
   <div class="empty">Журнал пустой. <code>open_from_alert()</code> создаст первую запись.</div>
+
+  <h2>Paper-trading · история и динамика</h2>
+  <div class="empty">Paper-trading журнал пуст. Каждый actionable alert (📣 в digest) <strong>автоматически</strong> создаст здесь запись через <code>open_from_alert()</code>. При текущей частоте ~0.08 сигнала/день первая сделка ожидается через несколько недель.</div>
 
   <h2>Последняя неделя · all signals</h2>
   <table class="tbl"><thead><tr><th>date</th><th>symbol</th><th>conf</th><th>OI</th><th>liq</th><th>rec</th><th>action</th></tr></thead><tbody><tr class="skip"><td>2026-05-21</td><td><strong>PENGU/USDT</strong></td><td>41</td><td>✗</td><td>organic</td><td>half_size</td><td><strong>skip</strong></td></tr></tbody></table>
