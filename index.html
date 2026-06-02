@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-06-02 15:44 UTC</title>
+<title>BF-L Daily — 2026-06-02 15:55 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -471,6 +471,34 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   background: var(--ink); color: var(--bg); padding: 1px 8px 2px;
   margin-left: 6px; letter-spacing: 0.04em; font-weight: 600; }
 
+/* Regime indicator — shorts allowed? */
+.regime { border: 1px solid var(--rule); margin: 0 0 20px;
+  background: var(--bg); }
+.regime-head { display: flex; justify-content: space-between;
+  align-items: center; padding: 12px 22px;
+  border-bottom: 1px solid var(--rule); background: var(--bg-soft);
+  flex-wrap: wrap; gap: 12px; }
+.regime-head .eyebrow { font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-mute); }
+.regime-tag { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; }
+.regime-body { padding: 16px 22px; }
+.regime-stats { display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; border: 1px solid var(--rule); margin-bottom: 10px; }
+.regime-stat { padding: 10px 14px; border-right: 1px solid var(--rule); }
+.regime-stat:last-child { border-right: none; }
+.regime-stat .k { font-size: 0.66rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-mute); margin-bottom: 4px; }
+.regime-stat .v { font-size: 1.0rem; font-weight: 600;
+  font-variant-numeric: tabular-nums; }
+.regime-why { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.5;
+  margin: 0; padding: 10px 14px; background: var(--bg-soft);
+  border-left: 3px solid var(--rule-strong); }
+@media (max-width: 760px) {
+  .regime-stats { grid-template-columns: 1fr 1fr; }
+  .regime-stat { border-bottom: 1px solid var(--rule); }
+  .regime-stat:nth-child(2n) { border-right: none; }
+}
+
 /* Period performance — strategies × time windows table */
 .pp { border: 1px solid var(--rule); margin: 0 0 28px; background: var(--bg); }
 .pp-head { display: flex; justify-content: space-between; align-items: center;
@@ -785,7 +813,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-06-02 15:44 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-06-02 15:55 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
@@ -818,6 +846,38 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   </nav>
 
   <section id="sec-market" class="anchor">
+<section class="regime">
+  <div class="regime-head">
+    <div class="eyebrow">Режим рынка для шортов</div>
+    <div class="regime-tag" style="color:var(--pos);">🟢 ШОРТЫ РАЗРЕШЕНЫ</div>
+  </div>
+  <div class="regime-body">
+    <div class="regime-stats">
+      <div class="regime-stat">
+        <div class="k">BTC vs 200-EMA</div>
+        <div class="v" style="color:var(--neg);">-5.5%</div>
+      </div>
+      <div class="regime-stat">
+        <div class="k">BTC 30 дн</div>
+        <div class="v" style="color:var(--neg);">-1.3%</div>
+      </div>
+      <div class="regime-stat">
+        <div class="k">BTC 90 дн</div>
+        <div class="v" style="color:var(--pos);">+14.1%</div>
+      </div>
+      <div class="regime-stat">
+        <div class="k">Альты выше 200-EMA</div>
+        <div class="v">15/152 (10%)</div>
+      </div>
+      <div class="regime-stat">
+        <div class="k">Классификация</div>
+        <div class="v" style="color:var(--neg);">CLEAN_BEAR</div>
+      </div>
+    </div>
+    <p class="regime-why">BTC ниже 200-EMA (-5.5%), только 10% альтов растут, BTC за 30 дн -1.3%. Шорты исторически работают.</p>
+  </div>
+</section>
+
 <section class="mkt">
   <div class="mkt-head">
     <div class="eyebrow">Рынок · BTC/USDT</div>
@@ -1854,11 +1914,11 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <summary class="strat-summary">
     <div class="strat-summary-top">
       <span class="strat-title">VOL-EXP — Прыжок после затишья</span>
-      <span class="strat-tag" style="background:var(--pos);">★ Лидер · LONG+SHORT</span>
+      <span class="strat-tag" style="background:var(--pos);">★ Лидер года · LONG+SHORT</span>
     </div>
     <div class="strat-summary-bot">
       <span class="strat-status">только бэк-тест</span>
-      <span class="strat-earned" style="color:var(--pos);">+$10,048 за 5 лет</span>
+      <span class="strat-earned" style="color:var(--pos);">+$10,048 за 5 лет · +$3,135 за год</span>
     </div>
     <div class="strat-summary-roi"><div class="strat-roi" style="color:var(--pos);"><span class="roi-val">+100.5%</span><span class="roi-lbl">ROI за 5 лет</span></div><div class="strat-roi-annual" style="color:var(--pos);"><span class="roi-val">+14.9%</span><span class="roi-lbl">в год</span></div></div>
     <div class="strat-chevron">▼</div>
@@ -1866,7 +1926,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <div class="strat-body">
     <p class="strat-what">Цена долго стоит в очень узком коридоре (волатильность сжалась до годового минимума). Это часто предвестник сильного движения. Ловим первый пробой границы коридора.</p>
     <ul class="strat-ifthen"><li><span class="if">если</span> Если волатильность 5+ дней подряд держится в нижних 10% от годового диапазона <span class="then">→</span> <span class="action">стратегия «заряжается» и ждёт пробоя</span></li><li><span class="if">если</span> Если цена пробила верх коридора <span class="then">→</span> <span class="action">покупаем</span></li><li><span class="if">если</span> Если цена пробила низ коридора <span class="then">→</span> <span class="action">шортим (продаём)</span></li><li><span class="if">если</span> Стоп: цена вернулась за середину коридора <span class="then">→</span> <span class="action">закрываем позицию с убытком</span></li><li><span class="if">если</span> Цель: цена прошла 3× больше чем стоп <span class="then">→</span> <span class="action">забираем прибыль</span></li></ul>
-    <p class="strat-note">В крипте squeeze-пробои почти всегда вниз — весь edge в шортах (+$10,306). Лонги дают −$258 (шум).</p>
+    <p class="strat-note">В крипте squeeze-пробои почти всегда вниз — весь edge в шортах. **За последний год +$3,135 — лучше всех остальных стратегий** (CSMOM, BF-L, B&H были убыточны). Последние 90 дней (bear-rally) −$594 — false signals.</p>
     <div class="strat-risk">📉 Риск: Низкий · max просадка −9.5%</div>
   </div>
 </details>
@@ -1875,11 +1935,11 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <summary class="strat-summary">
     <div class="strat-summary-top">
       <span class="strat-title">HS-S — Голова и плечи (шорт)</span>
-      <span class="strat-tag" style="background:var(--neg);">SHORT</span>
+      <span class="strat-tag" style="background:var(--neg);">SHORT · регим-зависимая</span>
     </div>
     <div class="strat-summary-bot">
       <span class="strat-status">только бэк-тест</span>
-      <span class="strat-earned" style="color:var(--neg);">+$9,408 за 5 лет</span>
+      <span class="strat-earned" style="color:var(--neg);">+$9,408 за 5 лет · +$1,185 за год</span>
     </div>
     <div class="strat-summary-roi"><div class="strat-roi" style="color:var(--pos);"><span class="roi-val">+94.1%</span><span class="roi-lbl">ROI за 5 лет</span></div><div class="strat-roi-annual" style="color:var(--pos);"><span class="roi-val">+14.2%</span><span class="roi-lbl">в год</span></div></div>
     <div class="strat-chevron">▼</div>
@@ -1887,7 +1947,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <div class="strat-body">
     <p class="strat-what">Классический паттерн вершины: три пика подряд, средний выше — как голова с плечами. Это разворот вверх → вниз. Ловим момент, когда крупный игрок «распределяется» и собирается уронить цену.</p>
     <ul class="strat-ifthen"><li><span class="if">если</span> Если на графике три пика и средний (голова) выше боковых (плечи) на 5%+ <span class="then">→</span> <span class="action">паттерн обнаружен</span></li><li><span class="if">если</span> Если цена пробила линию минимумов между пиками (neckline) <span class="then">→</span> <span class="action">входим в шорт</span></li><li><span class="if">если</span> Стоп: цена вернулась выше правого плеча <span class="then">→</span> <span class="action">закрываем шорт с убытком</span></li><li><span class="if">если</span> Цель: цена упала на расстояние «голова → линия» <span class="then">→</span> <span class="action">забираем прибыль</span></li></ul>
-    <p class="strat-note">Это **первое работающее шорт-правило** в нашей системе. До сегодня мы вообще не шортили.</p>
+    <p class="strat-note">Первое работающее шорт-правило в системе. **За год +$1,185, прибыльна вместе с VOL-EXP** (все лонг-стратегии за тот же год убыточны). НО последние 90 дней − $19 — bear-rally сбивает шорты по invalidation.</p>
     <div class="strat-risk">📉 Риск: Низкий · max просадка −7.3%</div>
   </div>
 </details>
@@ -1896,11 +1956,11 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <summary class="strat-summary">
     <div class="strat-summary-top">
       <span class="strat-title">B&H — Просто подержать</span>
-      <span class="strat-tag" style="background:var(--ink);">LONG · HODL</span>
+      <span class="strat-tag" style="background:var(--ink);">LONG · убыточна за год</span>
     </div>
     <div class="strat-summary-bot">
       <span class="strat-status">live (зеркало BF-L)</span>
-      <span class="strat-earned" style="color:var(--ink);">+$1,513 за 5 лет</span>
+      <span class="strat-earned" style="color:var(--ink);">+$1,513 за 5 лет · −$182 за год</span>
     </div>
     <div class="strat-summary-roi"><div class="strat-roi" style="color:var(--pos);"><span class="roi-val">+15.1%</span><span class="roi-lbl">ROI за 5 лет</span></div><div class="strat-roi-annual" style="color:var(--pos);"><span class="roi-val">+2.9%</span><span class="roi-lbl">в год</span></div></div>
     <div class="strat-chevron">▼</div>
@@ -1908,7 +1968,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <div class="strat-body">
     <p class="strat-what">Когда срабатывает BF-L сигнал, параллельно создаём «контрольную» сделку — просто купить эту же монету и держать. Через несколько недель сравниваем: умная система с TP/стопом выиграла или просто «купил и забыл»?</p>
     <ul class="strat-ifthen"><li><span class="if">если</span> Если BF-L нашёл сигнал на монете X <span class="then">→</span> <span class="action">покупаем X за $100 и держим</span></li><li><span class="if">если</span> Когда BF-L закрыл свою сделку <span class="then">→</span> <span class="action">продаём наш холд по той же дате</span></li><li><span class="if">если</span> Сравниваем PnL BF-L vs B&H <span class="then">→</span> <span class="action">видим, чья логика выхода лучше</span></li></ul>
-    <p class="strat-note">B&H **в 2.7× прибыльнее** BF-L. Простой холд бьёт нашу «умную» систему выхода — это сигнал что наши TP-цели слишком близкие и режут прибыль.</p>
+    <p class="strat-note">На 5 годах B&H в 2.7× прибыльнее BF-L. **Но за последний год −$182** — в текущем медвежьем рынке простой холд альтов теряет деньги. Это нормально: HODL работает только в bull-периодах.</p>
     <div class="strat-risk">📉 Риск: Высокий · нет стопов, можно потерять всё в катастрофе</div>
   </div>
 </details>
@@ -1917,11 +1977,11 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <summary class="strat-summary">
     <div class="strat-summary-top">
       <span class="strat-title">CSMOM — Топ-10 ракет недели</span>
-      <span class="strat-tag" style="background:var(--neu);">LONG · еженедельная ребалансировка</span>
+      <span class="strat-tag" style="background:var(--neu);">LONG · убыточна за год</span>
     </div>
     <div class="strat-summary-bot">
       <span class="strat-status">live (понедельник 03:30 МСК)</span>
-      <span class="strat-earned" style="color:var(--neu);">+$1,171 за 5 лет</span>
+      <span class="strat-earned" style="color:var(--neu);">+$1,171 за 5 лет · −$687 за год</span>
     </div>
     <div class="strat-summary-roi"><div class="strat-roi" style="color:var(--pos);"><span class="roi-val">+11.7%</span><span class="roi-lbl">ROI за 5 лет</span></div><div class="strat-roi-annual" style="color:var(--pos);"><span class="roi-val">+2.2%</span><span class="roi-lbl">в год</span></div></div>
     <div class="strat-chevron">▼</div>
@@ -1929,8 +1989,8 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <div class="strat-body">
     <p class="strat-what">Каждый понедельник смотрим какие 10 монет сильнее всего выросли за последние 4 недели. Покупаем их. Через неделю — закрываем и снова берём топ-10 (могут быть те же или новые). Не угадываем точку входа — ставим на широкий портфель.</p>
     <ul class="strat-ifthen"><li><span class="if">если</span> Каждый понедельник 03:30 МСК <span class="then">→</span> <span class="action">пересматриваем топ-10 по 4-недельной доходности</span></li><li><span class="if">если</span> Если монета осталась в топе <span class="then">→</span> <span class="action">удерживаем</span></li><li><span class="if">если</span> Если выпала из топа <span class="then">→</span> <span class="action">продаём и покупаем новую</span></li></ul>
-    <p class="strat-note">Работает в bull-market (как сейчас в 2024 — больше прибыли там). В bear-market сидит в плохих лонгах и теряет.</p>
-    <div class="strat-risk">📉 Риск: Средний · max просадка варьируется по рынку</div>
+    <p class="strat-note">Bull-моментум стратегия. **За год −$687** — не работает в нисходящем рынке (BTC −31% за год). Последние 90 дней +$204 поймала отскок (bear-rally), но это локальный эффект.</p>
+    <div class="strat-risk">📉 Риск: Средний · убыточна когда рынок падает или флэтит</div>
   </div>
 </details>
 
@@ -1938,11 +1998,11 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <summary class="strat-summary">
     <div class="strat-summary-top">
       <span class="strat-title">BF-L — Бычий флаг</span>
-      <span class="strat-tag" style="background:var(--neu);">LONG · паттерн</span>
+      <span class="strat-tag" style="background:var(--neu);">LONG · убыточна за год</span>
     </div>
     <div class="strat-summary-bot">
       <span class="strat-status">live (09:00 МСК ежедневно)</span>
-      <span class="strat-earned" style="color:var(--neu);">+$565 за 5 лет</span>
+      <span class="strat-earned" style="color:var(--neu);">+$565 за 5 лет · −$237 за год</span>
     </div>
     <div class="strat-summary-roi"><div class="strat-roi" style="color:var(--pos);"><span class="roi-val">+5.7%</span><span class="roi-lbl">ROI за 5 лет</span></div><div class="strat-roi-annual" style="color:var(--pos);"><span class="roi-val">+1.1%</span><span class="roi-lbl">в год</span></div></div>
     <div class="strat-chevron">▼</div>
@@ -1950,7 +2010,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
   <div class="strat-body">
     <p class="strat-what">Цена резко выросла (флагшток), потом немного откатилась в маленьком треугольнике (флаг), и снова готова идти вверх. Ловим момент пробоя верхней границы треугольника.</p>
     <ul class="strat-ifthen"><li><span class="if">если</span> Если цена выросла на +10% и больше с малым «шумом» <span class="then">→</span> <span class="action">это флагшток</span></li><li><span class="if">если</span> Если потом цена «отдыхает» в узком диапазоне ≤50% от роста <span class="then">→</span> <span class="action">это флаг</span></li><li><span class="if">если</span> Если цена пробила верх флага с подтверждением объёмом <span class="then">→</span> <span class="action">покупаем</span></li><li><span class="if">если</span> Стоп: цена ушла ниже флага <span class="then">→</span> <span class="action">закрываем</span></li><li><span class="if">если</span> Цель: цена прошла столько же сколько флагшток <span class="then">→</span> <span class="action">забираем прибыль</span></li></ul>
-    <p class="strat-note">Срабатывает редко (~65 сигналов в год на 500 монет). Качественный, но малочисленный сетап.</p>
+    <p class="strat-note">Срабатывает редко (~65 сигналов в год на 500 монет). **За последний год −$237** — лонг-паттерны не вызревают в нисходящем рынке.</p>
     <div class="strat-risk">📉 Риск: Низкий · max просадка −5%</div>
   </div>
 </details>
@@ -2248,11 +2308,16 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
       </table>
     </div>
     <p class="pp-note">
-      <strong>Ключевой вывод:</strong> HS-S и VOL-EXP теряют деньги в последние 90 дней
-      (явный bull-период — шортам тяжело), но прибыльны на 180+ дней. Это нормально для
-      шорт-паттернов — они работают на длинном горизонте, включающем разные режимы.
-      CSMOM (топ-10 моментум) наоборот — лучше всех в последние 90 дней, потому что
-      он сам по себе bullish-стратегия.
+      <strong>Главный вывод (за последний год):</strong> только HS-S и VOL-EXP
+      <strong>в плюсе</strong> (+$1,185 и +$3,135), все лонг-стратегии
+      <strong>убыточны</strong> (CSMOM −$687, BF-L −$237, B&amp;H −$182, MA-RT-L −$295).
+      Это потому что BTC за год потерял −31%, а только 9% альтов выше прошлогодней цены —
+      настоящий медвежий рынок, где работают только шорты.
+      <br><br>
+      <strong>Парадокс последних 90 дней:</strong> локально BTC отскочил +13.6% (bear-rally
+      внутри даунтренда). На этом отскоке шорты получили false-signals и просели,
+      а CSMOM временно поймал отскочивший моментум. Когда отскок закончится — расклад вернётся
+      к годовой норме.
     </p>
   </div>
 </section>
