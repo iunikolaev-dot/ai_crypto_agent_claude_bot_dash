@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-06-02 14:48 UTC</title>
+<title>BF-L Daily — 2026-06-02 15:37 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -440,6 +440,44 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   background: var(--ink); color: var(--bg); padding: 1px 8px 2px;
   margin-left: 6px; letter-spacing: 0.04em; font-weight: 600; }
 
+/* Period performance — strategies × time windows table */
+.pp { border: 1px solid var(--rule); margin: 0 0 28px; background: var(--bg); }
+.pp-head { display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 22px; border-bottom: 1px solid var(--rule);
+  background: var(--bg-soft); flex-wrap: wrap; gap: 8px; }
+.pp-head .eyebrow { font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-mute); }
+.pp-meta { font-size: 0.78rem; color: var(--ink-mute); font-style: italic; }
+.pp-body { padding: 20px 24px; }
+.pp-explain { font-size: 0.94rem; color: var(--ink-soft);
+  line-height: 1.55; margin: 0 0 18px; max-width: 78ch; }
+.pp-explain strong { color: var(--ink); }
+.pp-explain em { color: var(--ink); font-style: italic; }
+
+.pp-table-wrap { overflow-x: auto; }
+.pp-table { font-size: 0.88rem; min-width: 760px; }
+.pp-table th { font-size: 0.7rem; padding: 10px 12px 10px 0; }
+.pp-table td { padding: 12px 14px 12px 12px;
+  border-bottom: 1px solid var(--rule); }
+.pp-strat-name { font-weight: 600; font-size: 0.92rem;
+  line-height: 1.25; }
+.pp-strat-kind { font-size: 0.7rem; color: var(--ink-mute);
+  letter-spacing: 0.04em; margin-top: 2px; }
+
+.pp-cell { font-variant-numeric: tabular-nums; }
+.pp-total { font-size: 1.02rem; font-weight: 700; line-height: 1.1;
+  letter-spacing: -0.01em; }
+.pp-sub { font-size: 0.7rem; color: var(--ink-mute);
+  margin-top: 2px; letter-spacing: 0.02em; }
+.pp-empty { text-align: right; color: var(--ink-mute); }
+.pp-dash { color: var(--ink-mute); }
+
+.pp-note { font-size: 0.88rem; color: var(--ink-soft);
+  margin: 18px 0 0; padding: 12px 16px;
+  background: var(--bg-soft); border-left: 3px solid var(--rule-strong);
+  line-height: 1.55; }
+.pp-note strong { color: var(--ink); }
+
 /* Backtest details — CSS-only radio tabs */
 .bt { border: 1px solid var(--rule); margin: 0 0 28px; background: var(--bg); }
 .bt-head { display: flex; justify-content: space-between; align-items: center;
@@ -716,7 +754,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-06-02 14:48 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-06-02 15:37 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
@@ -728,6 +766,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
     <a href="#sec-paper" data-toc>История</a>
     <a href="#sec-explained" data-toc>Стратегии</a>
     <a href="#sec-compare" data-toc>Сравнение</a>
+    <a href="#sec-periods" data-toc>По периодам</a>
     <a href="#sec-backtest" data-toc>Бэк-тесты</a>
     <a href="#sec-search" data-toc>Поиск</a>
     <a href="#sec-week" data-toc>Неделя</a>
@@ -2135,6 +2174,41 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
       <strong>Статус в проде:</strong> сейчас торгуют только BF-L (лонг) и CSMOM
       (топ-10 ребаланс). HS-S и VOL-EXP — пока только бэк-тест, не запущены.
       Следующий шаг — подключить шорт-стратегии в pipeline и Telegram-бот.
+    </p>
+  </div>
+</section>
+
+
+  <h2 id="sec-periods" class="anchor">Доходность по временным окнам</h2>
+  
+<section class="pp">
+  <div class="pp-head">
+    <div class="eyebrow">Доходность стратегий по периодам</div>
+    <div class="pp-meta">$100 на сделку · одна стратегия в разных рыночных окнах</div>
+  </div>
+  <div class="pp-body">
+    <p class="pp-explain">
+      Каждая ячейка — реальный PnL стратегии в этом окне исторических данных
+      (не прогноз, не симуляция: суммированные real backtest-сделки за период).
+      <strong>Зелёная во всех окнах</strong> — стратегия универсальная.
+      <strong>Красная в коротких + зелёная в длинных</strong> —
+      <em>regime-dependent</em>: работает в одних фазах рынка, не работает в других.
+    </p>
+    <div class="pp-table-wrap">
+      <table class="tbl pp-table">
+        <thead><tr>
+          <th>Стратегия</th>
+          <th style="text-align:right; min-width:100px;">30 дн</th><th style="text-align:right; min-width:100px;">90 дн</th><th style="text-align:right; min-width:100px;">180 дн</th><th style="text-align:right; min-width:100px;">1 год</th><th style="text-align:right; min-width:100px;">2 года</th><th style="text-align:right; min-width:100px;">5 лет</th>
+        </tr></thead>
+        <tbody><tr><td style="border-left: 3px solid var(--neg);"><div class="pp-strat-name">HS-S — Голова и плечи (шорт)</div><div class="pp-strat-kind">SHORT · паттерн</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+42</div><div class="pp-sub">20 · win 35%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-19</div><div class="pp-sub">41 · win 20%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+412</div><div class="pp-sub">75 · win 31%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+1,185</div><div class="pp-sub">291 · win 25%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+4,068</div><div class="pp-sub">601 · win 29%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+9,408</div><div class="pp-sub">1352 · win 30%</div></td></tr><tr><td style="border-left: 3px solid var(--pos);"><div class="pp-strat-name">VOL-EXP — Volatility squeeze</div><div class="pp-strat-kind">LONG+SHORT · сжатие волы</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-463</div><div class="pp-sub">69 · win 13%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-594</div><div class="pp-sub">197 · win 24%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+193</div><div class="pp-sub">302 · win 29%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+3,135</div><div class="pp-sub">610 · win 38%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+4,108</div><div class="pp-sub">893 · win 36%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+10,048</div><div class="pp-sub">1848 · win 38%</div></td></tr><tr><td style="border-left: 3px solid var(--neu);"><div class="pp-strat-name">BF-L — Бычий флаг</div><div class="pp-strat-kind">LONG · паттерн</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+14</div><div class="pp-sub">3 · win 67%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+26</div><div class="pp-sub">7 · win 57%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+38</div><div class="pp-sub">14 · win 43%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-237</div><div class="pp-sub">68 · win 16%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-365</div><div class="pp-sub">108 · win 16%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+565</div><div class="pp-sub">328 · win 24%</div></td></tr><tr><td style="border-left: 3px solid var(--neu);"><div class="pp-strat-name">CSMOM — Топ-10 моментум</div><div class="pp-strat-kind">LONG · еженедельный ребаланс</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-120</div><div class="pp-sub">30 · win 37%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+204</div><div class="pp-sub">110 · win 47%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-127</div><div class="pp-sub">240 · win 40%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-687</div><div class="pp-sub">500 · win 37%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-577</div><div class="pp-sub">1030 · win 40%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+1,171</div><div class="pp-sub">2570 · win 43%</div></td></tr><tr><td style="border-left: 3px solid var(--ink);"><div class="pp-strat-name">B&H — Просто подержать</div><div class="pp-strat-kind">LONG · пассивный HODL</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+7</div><div class="pp-sub">3 · win 67%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+8</div><div class="pp-sub">7 · win 43%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+29</div><div class="pp-sub">14 · win 36%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-182</div><div class="pp-sub">68 · win 15%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+19</div><div class="pp-sub">108 · win 15%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+1,513</div><div class="pp-sub">328 · win 23%</div></td></tr><tr><td style="border-left: 3px solid oklch(0.55 0.18 280);"><div class="pp-strat-name">Funding Carry</div><div class="pp-strat-kind">DELTA-NEUTRAL · BTC perp</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--ink-soft);">$+0</div><div class="pp-sub">1 · win 100%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--ink-soft);">$+0</div><div class="pp-sub">1 · win 100%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--ink-soft);">$+0</div><div class="pp-sub">1 · win 100%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--ink-soft);">$+3</div><div class="pp-sub">3 · win 100%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+8</div><div class="pp-sub">7 · win 100%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+74</div><div class="pp-sub">34 · win 68%</div></td></tr><tr><td style="border-left: 3px solid oklch(0.65 0.12 50);"><div class="pp-strat-name">MA-RT-L — Откат к средней</div><div class="pp-strat-kind">LONG · НЕ работает</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-8</div><div class="pp-sub">2 · win 0%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+27</div><div class="pp-sub">5 · win 40%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--pos);">$+87</div><div class="pp-sub">12 · win 58%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-295</div><div class="pp-sub">63 · win 21%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-1,434</div><div class="pp-sub">161 · win 17%</div></td><td class="pp-cell" style="text-align:right;"><div class="pp-total" style="color:var(--neg);">$-1,665</div><div class="pp-sub">580 · win 29%</div></td></tr></tbody>
+      </table>
+    </div>
+    <p class="pp-note">
+      <strong>Ключевой вывод:</strong> HS-S и VOL-EXP теряют деньги в последние 90 дней
+      (явный bull-период — шортам тяжело), но прибыльны на 180+ дней. Это нормально для
+      шорт-паттернов — они работают на длинном горизонте, включающем разные режимы.
+      CSMOM (топ-10 моментум) наоборот — лучше всех в последние 90 дней, потому что
+      он сам по себе bullish-стратегия.
     </p>
   </div>
 </section>
