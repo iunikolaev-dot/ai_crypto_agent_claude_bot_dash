@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-06-02 15:37 UTC</title>
+<title>BF-L Daily — 2026-06-02 15:44 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,31 +30,62 @@ body {
 }
 .anchor { scroll-margin-top: 84px; }
 
-/* Sticky table-of-contents nav */
+/* Two-level sticky table-of-contents nav */
 .toc-nav { position: sticky; top: 0; z-index: 50;
-  display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto;
-  margin: 0 -28px 28px; padding: 10px 28px;
-  background: oklch(0.972 0.012 75 / 0.92);
-  backdrop-filter: saturate(180%) blur(8px);
-  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  margin: 0 -28px 28px;
+  background: oklch(0.972 0.012 75 / 0.94);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--rule);
+}
+.toc-top { display: flex; gap: 6px; padding: 4px 28px 0;
+  border-bottom: 1px solid var(--rule); }
+.toc-group-label { flex: 0 0 auto; padding: 12px 18px;
+  font-size: 1.0rem; font-weight: 500;
+  color: var(--ink-soft); text-decoration: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  letter-spacing: 0.01em;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.toc-group-label:hover { color: var(--ink); }
+.toc-group-label.active { color: var(--ink); font-weight: 600;
+  border-bottom-color: var(--ink); }
+
+.toc-subs { position: relative; min-height: 42px; }
+.toc-sub { display: none; gap: 4px; flex-wrap: nowrap;
+  overflow-x: auto; padding: 8px 28px;
   scrollbar-width: none;
 }
-.toc-nav::-webkit-scrollbar { display: none; }
-.toc-nav a { flex: 0 0 auto; padding: 6px 14px;
-  font-size: 0.86rem; letter-spacing: 0.04em;
+.toc-sub::-webkit-scrollbar { display: none; }
+.toc-sub.active { display: flex; }
+.toc-sub a { flex: 0 0 auto; padding: 5px 12px;
+  font-size: 0.85rem; letter-spacing: 0.02em;
   color: var(--ink-soft); text-decoration: none;
   border: 1px solid transparent; border-radius: 999px;
   transition: color 0.15s, background 0.15s, border-color 0.15s;
   white-space: nowrap; font-weight: 500;
 }
-.toc-nav a:hover { color: var(--ink); background: var(--bg-soft);
+.toc-sub a:hover { color: var(--ink); background: var(--bg-soft);
   border-color: var(--rule); }
-.toc-nav a.active { color: var(--bg); background: var(--ink);
+.toc-sub a.active { color: var(--bg); background: var(--ink);
   border-color: var(--ink); font-weight: 600; }
+
+/* Hover behaviour: hovering a top group label previews its subgroup */
+.toc-top a[data-group="market"]:hover ~ .toc-subs .toc-sub[data-group="market"],
+.toc-top a[data-group="trades"]:hover ~ .toc-subs .toc-sub[data-group="trades"],
+.toc-top a[data-group="analytics"]:hover ~ .toc-subs .toc-sub[data-group="analytics"] {
+  display: flex;
+}
+.toc-top:hover .toc-sub.active { display: none; }
+
 @media (max-width: 760px) {
-  .toc-nav { margin: 0 -16px 20px; padding: 8px 16px; }
-  .toc-nav a { padding: 5px 12px; font-size: 0.82rem; }
+  .toc-nav { margin: 0 -16px 20px; }
+  .toc-top { padding: 2px 16px 0; }
+  .toc-group-label { padding: 10px 14px; font-size: 0.94rem; }
+  .toc-sub { padding: 6px 16px; }
+  .toc-sub a { padding: 4px 11px; font-size: 0.8rem; }
 }
 .num { font-variant-numeric: tabular-nums lining-nums; }
 .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 28px 80px; }
@@ -754,23 +785,36 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-06-02 15:37 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-06-02 15:44 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
-    <a href="#sec-market" data-toc>Рынок</a>
-    <a href="#sec-council" data-toc>Совет</a>
-    <a href="#sec-strategy" data-toc>Стратегия</a>
-    <a href="#sec-signals" data-toc>Сигналы</a>
-    <a href="#sec-open" data-toc>Открытые</a>
-    <a href="#sec-paper" data-toc>История</a>
-    <a href="#sec-explained" data-toc>Стратегии</a>
-    <a href="#sec-compare" data-toc>Сравнение</a>
-    <a href="#sec-periods" data-toc>По периодам</a>
-    <a href="#sec-backtest" data-toc>Бэк-тесты</a>
-    <a href="#sec-search" data-toc>Поиск</a>
-    <a href="#sec-week" data-toc>Неделя</a>
-    <a href="#sec-how" data-toc>Как работает</a>
+    <div class="toc-top">
+      <a href="#sec-market" data-toc data-group="market" class="toc-group-label">Рынок</a>
+      <a href="#sec-signals" data-toc data-group="trades" class="toc-group-label">Сделки</a>
+      <a href="#sec-compare" data-toc data-group="analytics" class="toc-group-label">Аналитика</a>
+    </div>
+    <div class="toc-subs">
+      <div class="toc-sub" data-group="market">
+        <a href="#sec-market" data-toc data-parent="market">BTC обзор</a>
+        <a href="#sec-council" data-toc data-parent="market">Совет 6 экспертов</a>
+        <a href="#sec-strategy" data-toc data-parent="market">Сейчас на рынке</a>
+        <a href="#sec-explained" data-toc data-parent="market">Как работают стратегии</a>
+      </div>
+      <div class="toc-sub" data-group="trades">
+        <a href="#sec-signals" data-toc data-parent="trades">Свежие сигналы</a>
+        <a href="#sec-open" data-toc data-parent="trades">Открытые позиции</a>
+        <a href="#sec-paper" data-toc data-parent="trades">История сделок</a>
+        <a href="#sec-search" data-toc data-parent="trades">Поиск по монете</a>
+      </div>
+      <div class="toc-sub" data-group="analytics">
+        <a href="#sec-compare" data-toc data-parent="analytics">Сравнение</a>
+        <a href="#sec-periods" data-toc data-parent="analytics">По периодам</a>
+        <a href="#sec-backtest" data-toc data-parent="analytics">Бэк-тесты</a>
+        <a href="#sec-week" data-toc data-parent="analytics">Все сигналы недели</a>
+        <a href="#sec-how" data-toc data-parent="analytics">Как работает система</a>
+      </div>
+    </div>
   </nav>
 
   <section id="sec-market" class="anchor">
@@ -2891,22 +2935,44 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
 </div>
 <script>
 (function() {
-  var links = document.querySelectorAll('.toc-nav a[data-toc]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  // Two-level scrollspy: top-level groups + sub-items
+  var subLinks = document.querySelectorAll('.toc-sub a[data-toc]');
+  var topLinks = document.querySelectorAll('.toc-top a[data-toc]');
+  var subGroups = document.querySelectorAll('.toc-sub[data-group]');
+  if (!subLinks.length || !('IntersectionObserver' in window)) return;
+
+  // Map: section id → group name (from data-parent on its sub-link)
+  var sectionToGroup = {};
   var sections = [];
-  links.forEach(function(a) {
+  subLinks.forEach(function(a) {
     var id = a.getAttribute('href').slice(1);
+    var group = a.getAttribute('data-parent');
     var el = document.getElementById(id);
-    if (el) sections.push({ id: id, el: el, link: a });
+    if (el) {
+      sections.push({ id: id, el: el, group: group });
+      sectionToGroup[id] = group;
+    }
   });
+
   function setActive(id) {
-    links.forEach(function(a) {
+    var group = sectionToGroup[id];
+    // Sub-link highlight
+    subLinks.forEach(function(a) {
       if (a.getAttribute('href') === '#' + id) a.classList.add('active');
       else a.classList.remove('active');
     });
+    // Top-group highlight + show its sub-row
+    topLinks.forEach(function(a) {
+      if (a.getAttribute('data-group') === group) a.classList.add('active');
+      else a.classList.remove('active');
+    });
+    subGroups.forEach(function(g) {
+      if (g.getAttribute('data-group') === group) g.classList.add('active');
+      else g.classList.remove('active');
+    });
   }
+
   var io = new IntersectionObserver(function(entries) {
-    // Pick the section whose top is closest to (but below) the nav bar
     var best = null;
     entries.forEach(function(e) {
       if (e.isIntersecting) {
@@ -2916,14 +2982,23 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
       }
     });
     if (best) setActive(best.target.id);
-  }, { rootMargin: '-80px 0px -65% 0px', threshold: 0 });
+  }, { rootMargin: '-90px 0px -65% 0px', threshold: 0 });
   sections.forEach(function(s) { io.observe(s.el); });
+
   // Click → instant active
-  links.forEach(function(a) {
+  subLinks.forEach(function(a) {
     a.addEventListener('click', function() {
       setActive(a.getAttribute('href').slice(1));
     });
   });
+  // Clicking a top-group label scrolls to its first sub-item and activates the group
+  topLinks.forEach(function(a) {
+    a.addEventListener('click', function() {
+      var id = a.getAttribute('href').slice(1);
+      setActive(id);
+    });
+  });
+
   // Initial state from hash or first section
   var initial = location.hash ? location.hash.slice(1) : (sections[0] && sections[0].id);
   if (initial) setActive(initial);
