@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-06-02 11:48 UTC</title>
+<title>BF-L Daily — 2026-06-02 12:12 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -440,6 +440,51 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   background: var(--ink); color: var(--bg); padding: 1px 8px 2px;
   margin-left: 6px; letter-spacing: 0.04em; font-weight: 600; }
 
+/* Strategies explained — plain-language cards */
+.strats { margin: 0 0 28px; }
+.strats-head { display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+.strats-head .eyebrow { font-size: 0.72rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink-mute); }
+.strats-meta { font-size: 0.82rem; color: var(--ink-mute); font-style: italic; }
+.strats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 900px) {
+  .strats-grid { grid-template-columns: 1fr; }
+}
+.strat-card { border: 1px solid var(--rule); border-left: 4px solid var(--neu);
+  padding: 18px 22px; background: var(--bg); }
+.strat-head { display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 12px; margin-bottom: 6px; }
+.strat-title { font-size: 1.1rem; font-weight: 700; margin: 0;
+  letter-spacing: -0.01em; line-height: 1.3; }
+.strat-tag { font-size: 0.66rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--bg); padding: 3px 8px;
+  font-weight: 600; white-space: nowrap; }
+.strat-meta { display: flex; gap: 14px; font-size: 0.78rem;
+  margin-bottom: 12px; flex-wrap: wrap; }
+.strat-status { color: var(--ink-mute); letter-spacing: 0.04em; }
+.strat-earned { font-weight: 700; font-variant-numeric: tabular-nums; }
+.strat-what { font-size: 0.94rem; line-height: 1.55;
+  color: var(--ink-soft); margin: 0 0 12px; }
+.strat-ifthen { list-style: none; padding: 0; margin: 0 0 12px;
+  border-top: 1px solid var(--rule); padding-top: 10px; }
+.strat-ifthen li { font-size: 0.88rem; line-height: 1.5;
+  color: var(--ink-soft); margin: 0 0 6px; padding-left: 0; }
+.strat-ifthen .if { font-size: 0.66rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-mute);
+  font-weight: 600; margin-right: 4px; }
+.strat-ifthen .then { color: var(--ink-mute); font-weight: 600;
+  margin: 0 4px; }
+.strat-ifthen .action { color: var(--ink); font-weight: 500; }
+.strat-note { font-size: 0.86rem; line-height: 1.5;
+  color: var(--ink-soft); margin: 0 0 12px;
+  padding: 10px 14px; background: var(--bg-soft);
+  border-left: 3px solid var(--rule-strong); }
+.strat-note strong { color: var(--ink); }
+.strat-risk { font-size: 0.84rem; color: var(--ink-soft);
+  border-top: 1px solid var(--rule); padding-top: 10px;
+  font-style: italic; }
+
 /* Strategy comparison */
 .sc { border: 1px solid var(--rule); margin: 0 0 28px; background: var(--bg); }
 .sc-head { display: flex; justify-content: space-between; align-items: center;
@@ -518,7 +563,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-06-02 11:48 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-06-02 12:12 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
@@ -528,6 +573,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
     <a href="#sec-signals" data-toc>Сигналы</a>
     <a href="#sec-open" data-toc>Открытые</a>
     <a href="#sec-paper" data-toc>История</a>
+    <a href="#sec-explained" data-toc>Стратегии</a>
     <a href="#sec-compare" data-toc>Сравнение</a>
     <a href="#sec-search" data-toc>Поиск</a>
     <a href="#sec-week" data-toc>Неделя</a>
@@ -583,16 +629,16 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   <div class="mkt-sentiment">
     <div class="fg-badge" style="border-color:var(--neu)">
       <div class="fg-label">Sentiment</div>
-      <div class="fg-value num" style="color:var(--neu)">47<span class="fg-100">/100</span></div>
+      <div class="fg-value num" style="color:var(--neu)">45<span class="fg-100">/100</span></div>
       <div class="fg-text" style="color:var(--neu)">Neutral</div>
     </div>
     <div class="fg-summary">
-      <div class="fg-summary-text">Коррекция в нисходящем боковике. BTC -1.3% за 30 дней, ниже 200-EMA. доминация BTC 58.0%. 18/152 альтов выше своего 200-EMA (12%). Sentiment: **Neutral** (46.8/100).</div>
+      <div class="fg-summary-text">Коррекция в нисходящем боковике. BTC -1.3% за 30 дней, ниже 200-EMA. доминация BTC 58.0%. 16/152 альтов выше своего 200-EMA (11%). Sentiment: **Neutral** (45.4/100).</div>
       <div class="fg-components">
         <span>momentum <strong class="num">47</strong></span>
         <span>volatility <strong class="num">95</strong></span>
-        <span>breadth <strong class="num">12</strong></span>
-        <span>alt strength <strong class="num">52</strong></span>
+        <span>breadth <strong class="num">10</strong></span>
+        <span>alt strength <strong class="num">47</strong></span>
       </div>
     </div>
   </div>
@@ -863,7 +909,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
     </div>
   </div>
   <div class="cc-meta"><span class="cc-hit cc-hit-empty">hit —</span> </div>
-  <div class="cc-signal"><span class="cc-k">сигнал</span>Рынок в боковике с уклоном вниз — растёт только 12% монет.</div>
+  <div class="cc-signal"><span class="cc-k">сигнал</span>Рынок в боковике с уклоном вниз — растёт только 11% монет.</div>
   <div class="cc-rec"><span class="cc-k">рекомендация</span>Альты пока не трогать. BTC — только на сильных откатах.</div>
 </div>
 </div>
@@ -978,7 +1024,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   <div class="empty">Сегодня свежих сигналов нет. Pipeline следующий запуск — завтра 09:00 МСК.</div>
 
   <h2 id="sec-open" class="anchor">Open paper trades</h2>
-  <table class="tbl"><thead><tr><th>symbol</th><th>entry date</th><th>entry</th><th>stop</th><th>TP1</th><th>TP2</th><th>OI@entry</th><th>id</th></tr></thead><tbody><tr><td><strong>ZEC/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>665.4466749999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_2a42834f</td></tr><tr><td><strong>TON/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>2.0741064999999996</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_f94e5f2d</td></tr><tr><td><strong>ONDO/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.4150215999999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_02b80e21</td></tr><tr><td><strong>RIF/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.0728090499999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_8865b01d</td></tr><tr><td><strong>JTO/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.5295932</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_4a541728</td></tr><tr><td><strong>INJ/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>5.259877999999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_f6f50030</td></tr><tr><td><strong>PENDLE/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>1.9058545</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_d8cff9ac</td></tr><tr><td><strong>NEAR/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>1.9298904999999995</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_47b4f1b5</td></tr><tr><td><strong>DASH/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>49.04345499999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_02d60b28</td></tr><tr><td><strong>BANANAS31/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.0125658204999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_6c07b1db</td></tr></tbody></table>
+  <table class="tbl"><thead><tr><th>symbol</th><th>entry date</th><th>entry</th><th>stop</th><th>TP1</th><th>TP2</th><th>OI@entry</th><th>id</th></tr></thead><tbody><tr><td><strong>ZEC/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>665.4466749999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_2a42834f</td></tr><tr><td><strong>TON/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>2.0741064999999996</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_f94e5f2d</td></tr><tr><td><strong>ONDO/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.4150215999999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_02b80e21</td></tr><tr><td><strong>RIF/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.0728090499999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_8865b01d</td></tr><tr><td><strong>JTO/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.5295932</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_4a541728</td></tr><tr><td><strong>INJ/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>5.259877999999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_f6f50030</td></tr><tr><td><strong>PENDLE/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>1.9058545</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_d8cff9ac</td></tr><tr><td><strong>NEAR/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>1.9298904999999995</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_47b4f1b5</td></tr><tr><td><strong>DASH/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>49.04345499999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_02d60b28</td></tr><tr><td><strong>BANANAS31/USDT</strong></td><td>2026-05-25 00:00:00+00:00</td><td>0.0125658204999999</td><td>nan</td><td>nan</td><td>nan</td><td>n/a (csmom)</td><td>cs_6c07b1db</td></tr><tr><td><strong>FIL/USDT</strong></td><td>2026-05-31 00:00:00+00:00</td><td>nan</td><td>1.1055</td><td>0.71678571</td><td>0.49657143</td><td>short setup (hs_s)</td><td>bc471464d5</td></tr></tbody></table>
 
   <h2 id="sec-paper" class="anchor">Paper-trading · история и динамика</h2>
   <input type="radio" name="paper_period" id="paper_p_90d"><input type="radio" name="paper_period" id="paper_p_1y" checked><input type="radio" name="paper_period" id="paper_p_2y"><input type="radio" name="paper_period" id="paper_p_all"><div class="period-tabs"><label for="paper_p_90d" class="period-tab">90 дней<span class="period-badge">8</span></label><label for="paper_p_1y" class="period-tab">1 год<span class="period-badge">68</span></label><label for="paper_p_2y" class="period-tab">2 года<span class="period-badge">112</span></label><label for="paper_p_all" class="period-tab">Вся история<span class="period-badge">328</span></label></div><div class="period-view view-90d">
@@ -1066,7 +1112,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div style="font-size:0.86rem; color:var(--ink-soft); margin:4px 0 18px;">
   <strong>Старт:</strong> $10,000 · $100/сделку фикс ·
   <strong>Период:</strong> 2026-03-19 → 2026-05-21 (63д) ·
-  Open trades: 10 ·
+  Open trades: 11 ·
   Avg R vs backtest CI95: <span style="color:var(--pos);">в CI95 backtest [+0.29, +0.66] ✓</span>
 </div>
 
@@ -1210,7 +1256,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div style="font-size:0.86rem; color:var(--ink-soft); margin:4px 0 18px;">
   <strong>Старт:</strong> $10,000 · $100/сделку фикс ·
   <strong>Период:</strong> 2025-06-11 → 2026-05-21 (344д) ·
-  Open trades: 10 ·
+  Open trades: 11 ·
   Avg R vs backtest CI95: <span style="color:var(--neg);">отрицательный — edge может быть мёртв</span>
 </div>
 
@@ -1354,7 +1400,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div style="font-size:0.86rem; color:var(--ink-soft); margin:4px 0 18px;">
   <strong>Старт:</strong> $10,000 · $100/сделку фикс ·
   <strong>Период:</strong> 2024-06-07 → 2026-05-21 (713д) ·
-  Open trades: 10 ·
+  Open trades: 11 ·
   Avg R vs backtest CI95: <span style="color:var(--neg);">отрицательный — edge может быть мёртв</span>
 </div>
 
@@ -1498,7 +1544,7 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
 <div style="font-size:0.86rem; color:var(--ink-soft); margin:4px 0 18px;">
   <strong>Старт:</strong> $10,000 · $100/сделку фикс ·
   <strong>Период:</strong> 2021-09-06 → 2026-05-21 (1718д) ·
-  Open trades: 10 ·
+  Open trades: 11 ·
   Avg R vs backtest CI95: <span style="color:var(--neu);">ниже CI95 lo +0.29, но > 0</span>
 </div>
 
@@ -1558,6 +1604,122 @@ input[name="paper_period"] { position: absolute; left: -9999px; }
   <tbody><tr><td><strong>BNB/USDT</strong></td><td style="text-align:right;">10</td><td style="text-align:right;">3/10</td><td style="text-align:right; color:var(--pos);">$+40</td></tr><tr><td><strong>JST/USDT</strong></td><td style="text-align:right;">8</td><td style="text-align:right;">4/8</td><td style="text-align:right; color:var(--pos);">$+57</td></tr><tr><td><strong>XRP/USDT</strong></td><td style="text-align:right;">8</td><td style="text-align:right;">1/8</td><td style="text-align:right; color:var(--neg);">$-25</td></tr><tr><td><strong>SOL/USDT</strong></td><td style="text-align:right;">7</td><td style="text-align:right;">2/7</td><td style="text-align:right; color:var(--pos);">$+42</td></tr><tr><td><strong>STX/USDT</strong></td><td style="text-align:right;">7</td><td style="text-align:right;">2/7</td><td style="text-align:right; color:var(--pos);">$+68</td></tr><tr><td><strong>TRX/USDT</strong></td><td style="text-align:right;">7</td><td style="text-align:right;">2/7</td><td style="text-align:right; color:var(--pos);">$+31</td></tr><tr><td><strong>AXS/USDT</strong></td><td style="text-align:right;">6</td><td style="text-align:right;">1/6</td><td style="text-align:right; color:var(--pos);">$+58</td></tr><tr><td><strong>AAVE/USDT</strong></td><td style="text-align:right;">6</td><td style="text-align:right;">2/6</td><td style="text-align:right; color:var(--pos);">$+57</td></tr><tr><td><strong>NMR/USDT</strong></td><td style="text-align:right;">6</td><td style="text-align:right;">2/6</td><td style="text-align:right; color:var(--pos);">$+29</td></tr><tr><td><strong>FET/USDT</strong></td><td style="text-align:right;">6</td><td style="text-align:right;">1/6</td><td style="text-align:right; color:var(--pos);">$+33</td></tr><tr><td><strong>SUI/USDT</strong></td><td style="text-align:right;">6</td><td style="text-align:right;">1/6</td><td style="text-align:right; color:var(--pos);">$+8</td></tr><tr><td><strong>1INCH/USDT</strong></td><td style="text-align:right;">6</td><td style="text-align:right;">1/6</td><td style="text-align:right; color:var(--neg);">$-32</td></tr></tbody>
 </table>
 <table class="tbl"><thead><tr><th>exit date</th><th>symbol</th><th>reason</th><th>R</th><th>BF-L PnL</th><th>B&amp;H PnL</th><th>BF-L beat?</th><th>cum BF-L</th></tr></thead><tbody><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>HBAR/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.48</td><td style="color:var(--neg);">$-5.48</td><td style="color:var(--neg);">$-5.34</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-5.48</td></tr><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>SEI/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.47</td><td style="color:var(--neg);">$-5.76</td><td style="color:var(--neg);">$-5.62</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-11.24</td></tr><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>AAVE/USDT</strong></td><td>timeout</td><td style="color:var(--neg);">-0.33</td><td style="color:var(--neg);">$-5.37</td><td style="color:var(--neg);">$-5.23</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-16.61</td></tr><tr><td>2025-10-07 00:00:00+00:00</td><td><strong>LINK/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.45</td><td style="color:var(--neg);">$-7.04</td><td style="color:var(--neg);">$-6.90</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-23.65</td></tr><tr><td>2025-10-10 00:00:00+00:00</td><td><strong>XLM/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.01</td><td style="color:var(--neg);">$-14.20</td><td style="color:var(--neg);">$-19.98</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-37.85</td></tr><tr><td>2025-10-10 00:00:00+00:00</td><td><strong>BCH/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.01</td><td style="color:var(--neg);">$-10.92</td><td style="color:var(--neg);">$-12.31</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-48.77</td></tr><tr><td>2026-01-07 00:00:00+00:00</td><td><strong>BAT/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.58</td><td style="color:var(--neg);">$-6.51</td><td style="color:var(--neg);">$-6.37</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-55.28</td></tr><tr><td>2026-01-08 00:00:00+00:00</td><td><strong>ZEC/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.65</td><td style="color:var(--neg);">$-18.49</td><td style="color:var(--neg);">$-18.36</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-73.77</td></tr><tr><td>2026-01-11 00:00:00+00:00</td><td><strong>GLM/USDT</strong></td><td>tp2</td><td style="color:var(--pos);">+2.50</td><td style="color:var(--pos);">$+28.57</td><td style="color:var(--pos);">$+38.63</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-45.20</td></tr><tr><td>2026-01-30 00:00:00+00:00</td><td><strong>GNO/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.07</td><td style="color:var(--neg);">$-2.21</td><td style="color:var(--neg);">$-3.55</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-47.41</td></tr><tr><td>2026-01-31 00:00:00+00:00</td><td><strong>LUNC/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.02</td><td style="color:var(--neg);">$-8.46</td><td style="color:var(--neg);">$-11.13</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-55.87</td></tr><tr><td>2026-02-05 00:00:00+00:00</td><td><strong>JST/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.77</td><td style="color:var(--neg);">$-5.72</td><td style="color:var(--neg);">$-5.58</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-61.59</td></tr><tr><td>2026-03-19 00:00:00+00:00</td><td><strong>JST/USDT</strong></td><td>tp2</td><td style="color:var(--pos);">+1.60</td><td style="color:var(--pos);">$+24.46</td><td style="color:var(--pos);">$+27.41</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-37.13</td></tr><tr><td>2026-04-15 00:00:00+00:00</td><td><strong>JST/USDT</strong></td><td>stop_be_after_tp1</td><td style="color:var(--pos);">+0.49</td><td style="color:var(--pos);">$+9.41</td><td style="color:var(--neg);">$-5.54</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-27.72</td></tr><tr><td>2026-04-16 00:00:00+00:00</td><td><strong>COW/USDT</strong></td><td>stop</td><td style="color:var(--neg);">-1.02</td><td style="color:var(--neg);">$-7.63</td><td style="color:var(--neg);">$-4.70</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-35.35</td></tr><tr><td>2026-04-19 00:00:00+00:00</td><td><strong>RVN/USDT</strong></td><td>invalidation</td><td style="color:var(--neg);">-0.49</td><td style="color:var(--neg);">$-4.28</td><td style="color:var(--neg);">$-4.14</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-39.63</td></tr><tr><td>2026-05-18 00:00:00+00:00</td><td><strong>POLYX/USDT</strong></td><td>stop_be_after_tp1</td><td style="color:var(--pos);">+0.85</td><td style="color:var(--pos);">$+8.31</td><td style="color:var(--pos);">$+1.02</td><td style="text-align:center;">✓</td><td style="color:var(--neg);">$-31.32</td></tr><tr><td>2026-05-21 00:00:00+00:00</td><td><strong>RENDER/USDT</strong></td><td>timeout</td><td style="color:var(--pos);">+0.64</td><td style="color:var(--pos);">$+6.05</td><td style="color:var(--pos);">$+6.21</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-25.27</td></tr><tr><td>2026-05-21 00:00:00+00:00</td><td><strong>PENGU/USDT</strong></td><td>timeout</td><td style="color:var(--neg);">-0.02</td><td style="color:var(--neg);">$-0.30</td><td style="color:var(--neg);">$-0.15</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-25.57</td></tr><tr><td>2026-05-21 00:00:00+00:00</td><td><strong>KAITO/USDT</strong></td><td>timeout</td><td style="color:var(--pos);">+0.89</td><td style="color:var(--pos);">$+14.82</td><td style="color:var(--pos);">$+14.99</td><td style="text-align:center;">·</td><td style="color:var(--neg);">$-10.75</td></tr></tbody></table></div>
+
+  <h2 id="sec-explained" class="anchor">Как работают наши стратегии (простыми словами)</h2>
+  
+<section class="strats">
+  <div class="strats-head">
+    <div class="eyebrow">Как работают наши стратегии</div>
+    <div class="strats-meta">простыми словами · если-то логика · без жаргона</div>
+  </div>
+  <div class="strats-grid">
+<div class="strat-card" style="border-left-color:var(--pos);">
+  <div class="strat-head">
+    <h3 class="strat-title">VOL-EXP — Прыжок после затишья</h3>
+    <span class="strat-tag" style="background:var(--pos);">★ Лидер · LONG+SHORT</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">только бэк-тест</span>
+    <span class="strat-earned" style="color:var(--pos);">+$10,048 за 5 лет</span>
+  </div>
+  <p class="strat-what">Цена долго стоит в очень узком коридоре (волатильность сжалась до годового минимума). Это часто предвестник сильного движения. Ловим первый пробой границы коридора.</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Если волатильность 5+ дней подряд держится в нижних 10% от годового диапазона <span class="then">→</span> <span class="action">стратегия «заряжается» и ждёт пробоя</span></li><li><span class="if">если</span> Если цена пробила верх коридора <span class="then">→</span> <span class="action">покупаем</span></li><li><span class="if">если</span> Если цена пробила низ коридора <span class="then">→</span> <span class="action">шортим (продаём)</span></li><li><span class="if">если</span> Стоп: цена вернулась за середину коридора <span class="then">→</span> <span class="action">закрываем позицию с убытком</span></li><li><span class="if">если</span> Цель: цена прошла 3× больше чем стоп <span class="then">→</span> <span class="action">забираем прибыль</span></li></ul>
+  <p class="strat-note">В крипте squeeze-пробои почти всегда вниз — весь edge в шортах (+$10,306). Лонги дают −$258 (шум).</p>
+  <div class="strat-risk">📉 Риск: Низкий · max просадка −9.5%</div>
+</div>
+
+<div class="strat-card" style="border-left-color:var(--neg);">
+  <div class="strat-head">
+    <h3 class="strat-title">HS-S — Голова и плечи (шорт)</h3>
+    <span class="strat-tag" style="background:var(--neg);">SHORT</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">только бэк-тест</span>
+    <span class="strat-earned" style="color:var(--neg);">+$9,408 за 5 лет</span>
+  </div>
+  <p class="strat-what">Классический паттерн вершины: три пика подряд, средний выше — как голова с плечами. Это разворот вверх → вниз. Ловим момент, когда крупный игрок «распределяется» и собирается уронить цену.</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Если на графике три пика и средний (голова) выше боковых (плечи) на 5%+ <span class="then">→</span> <span class="action">паттерн обнаружен</span></li><li><span class="if">если</span> Если цена пробила линию минимумов между пиками (neckline) <span class="then">→</span> <span class="action">входим в шорт</span></li><li><span class="if">если</span> Стоп: цена вернулась выше правого плеча <span class="then">→</span> <span class="action">закрываем шорт с убытком</span></li><li><span class="if">если</span> Цель: цена упала на расстояние «голова → линия» <span class="then">→</span> <span class="action">забираем прибыль</span></li></ul>
+  <p class="strat-note">Это **первое работающее шорт-правило** в нашей системе. До сегодня мы вообще не шортили.</p>
+  <div class="strat-risk">📉 Риск: Низкий · max просадка −7.3%</div>
+</div>
+
+<div class="strat-card" style="border-left-color:var(--ink);">
+  <div class="strat-head">
+    <h3 class="strat-title">B&H — Просто подержать</h3>
+    <span class="strat-tag" style="background:var(--ink);">LONG · HODL</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">live (зеркало BF-L)</span>
+    <span class="strat-earned" style="color:var(--ink);">+$1,513 за 5 лет</span>
+  </div>
+  <p class="strat-what">Когда срабатывает BF-L сигнал, параллельно создаём «контрольную» сделку — просто купить эту же монету и держать. Через несколько недель сравниваем: умная система с TP/стопом выиграла или просто «купил и забыл»?</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Если BF-L нашёл сигнал на монете X <span class="then">→</span> <span class="action">покупаем X за $100 и держим</span></li><li><span class="if">если</span> Когда BF-L закрыл свою сделку <span class="then">→</span> <span class="action">продаём наш холд по той же дате</span></li><li><span class="if">если</span> Сравниваем PnL BF-L vs B&H <span class="then">→</span> <span class="action">видим, чья логика выхода лучше</span></li></ul>
+  <p class="strat-note">B&H **в 2.7× прибыльнее** BF-L. Простой холд бьёт нашу «умную» систему выхода — это сигнал что наши TP-цели слишком близкие и режут прибыль.</p>
+  <div class="strat-risk">📉 Риск: Высокий · нет стопов, можно потерять всё в катастрофе</div>
+</div>
+
+<div class="strat-card" style="border-left-color:var(--neu);">
+  <div class="strat-head">
+    <h3 class="strat-title">CSMOM — Топ-10 ракет недели</h3>
+    <span class="strat-tag" style="background:var(--neu);">LONG · еженедельная ребалансировка</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">live (понедельник 03:30 МСК)</span>
+    <span class="strat-earned" style="color:var(--neu);">+$1,171 за 5 лет</span>
+  </div>
+  <p class="strat-what">Каждый понедельник смотрим какие 10 монет сильнее всего выросли за последние 4 недели. Покупаем их. Через неделю — закрываем и снова берём топ-10 (могут быть те же или новые). Не угадываем точку входа — ставим на широкий портфель.</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Каждый понедельник 03:30 МСК <span class="then">→</span> <span class="action">пересматриваем топ-10 по 4-недельной доходности</span></li><li><span class="if">если</span> Если монета осталась в топе <span class="then">→</span> <span class="action">удерживаем</span></li><li><span class="if">если</span> Если выпала из топа <span class="then">→</span> <span class="action">продаём и покупаем новую</span></li></ul>
+  <p class="strat-note">Работает в bull-market (как сейчас в 2024 — больше прибыли там). В bear-market сидит в плохих лонгах и теряет.</p>
+  <div class="strat-risk">📉 Риск: Средний · max просадка варьируется по рынку</div>
+</div>
+
+<div class="strat-card" style="border-left-color:var(--neu);">
+  <div class="strat-head">
+    <h3 class="strat-title">BF-L — Бычий флаг</h3>
+    <span class="strat-tag" style="background:var(--neu);">LONG · паттерн</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">live (09:00 МСК ежедневно)</span>
+    <span class="strat-earned" style="color:var(--neu);">+$565 за 5 лет</span>
+  </div>
+  <p class="strat-what">Цена резко выросла (флагшток), потом немного откатилась в маленьком треугольнике (флаг), и снова готова идти вверх. Ловим момент пробоя верхней границы треугольника.</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Если цена выросла на +10% и больше с малым «шумом» <span class="then">→</span> <span class="action">это флагшток</span></li><li><span class="if">если</span> Если потом цена «отдыхает» в узком диапазоне ≤50% от роста <span class="then">→</span> <span class="action">это флаг</span></li><li><span class="if">если</span> Если цена пробила верх флага с подтверждением объёмом <span class="then">→</span> <span class="action">покупаем</span></li><li><span class="if">если</span> Стоп: цена ушла ниже флага <span class="then">→</span> <span class="action">закрываем</span></li><li><span class="if">если</span> Цель: цена прошла столько же сколько флагшток <span class="then">→</span> <span class="action">забираем прибыль</span></li></ul>
+  <p class="strat-note">Срабатывает редко (~65 сигналов в год на 500 монет). Качественный, но малочисленный сетап.</p>
+  <div class="strat-risk">📉 Риск: Низкий · max просадка −5%</div>
+</div>
+
+<div class="strat-card" style="border-left-color:oklch(0.55 0.18 280);">
+  <div class="strat-head">
+    <h3 class="strat-title">Funding Carry — Налог с плечевиков</h3>
+    <span class="strat-tag" style="background:oklch(0.55 0.18 280);">DELTA-NEUTRAL · безрисковая</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">только бэк-тест</span>
+    <span class="strat-earned" style="color:oklch(0.55 0.18 280);">+$74 за 5 лет на $100</span>
+  </div>
+  <p class="strat-what">На бирже Binance люди торгуют BTC с плечом. Каждые 8 часов они платят друг другу «funding» — налог за свою позицию. Когда лонгов больше — лонг платят шортам. Мы покупаем спот BTC + продаём perp BTC одновременно (получается ноль направленного риска), и просто получаем funding-выплаты как пассивный доход.</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Если funding-rate > 10% годовых <span class="then">→</span> <span class="action">открываем спот-лонг + перпет-шорт</span></li><li><span class="if">если</span> Каждые 8 часов <span class="then">→</span> <span class="action">получаем funding-выплату ≈ 0.03% от позиции</span></li><li><span class="if">если</span> Если funding упал ниже 2% и держится 2 дня <span class="then">→</span> <span class="action">закрываем — больше нет смысла</span></li></ul>
+  <p class="strat-note">Минимальный риск (нет направленной экспозиции), но и доход маленький — ~1.5% годовых на капитал. Хороший baseline.</p>
+  <div class="strat-risk">📉 Риск: Минимальный · max просадка −0.0% (на 5-летней истории)</div>
+</div>
+
+<div class="strat-card" style="border-left-color:var(--neg);">
+  <div class="strat-head">
+    <h3 class="strat-title">MA-RT-L — Откат к средней (НЕ РАБОТАЕТ)</h3>
+    <span class="strat-tag" style="background:var(--neg);">LONG · провал</span>
+  </div>
+  <div class="strat-meta">
+    <span class="strat-status">выключено · оставлено для истории</span>
+    <span class="strat-earned" style="color:var(--neg);">−$1,665 за 5 лет</span>
+  </div>
+  <p class="strat-what">Классический сетап из учебников: в восходящем тренде покупаем когда цена откатилась к 50-дневной скользящей средней (она работает как «дно» в тренде). На акциях S&P работает, на крипте — нет.</p>
+  <ul class="strat-ifthen"><li><span class="if">если</span> Если EMA50 > EMA200 (тренд вверх) <span class="then">→</span> <span class="action">ждём отката</span></li><li><span class="if">если</span> Если цена коснулась EMA50 снизу и отскочила <span class="then">→</span> <span class="action">покупаем (по теории)</span></li><li><span class="if">если</span> В реальности на крипте <span class="then">→</span> <span class="action">цена пробивает EMA50 и идёт ещё ниже, мы получаем стоп</span></li></ul>
+  <p class="strat-note">Это **антипример**. Тестировали 2 варианта (классический + ATR-стоп) — оба теряют. Вывод: учебники по ТА из акций плохо переносятся на крипто-альты.</p>
+  <div class="strat-risk">📉 Риск: Высокий · max просадка −23%, не торговать!</div>
+</div>
+</div>
+</section>
+
 
   <h2 id="sec-compare" class="anchor">Какая стратегия зарабатывает больше</h2>
   
