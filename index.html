@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>BF-L Daily — 2026-06-03 14:27 UTC</title>
+<title>BF-L Daily — 2026-06-03 15:12 UTC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="refresh" content="300">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -819,7 +819,7 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
 <div class="wrap">
   <div class="head">
     <h1>BF-L Daily</h1>
-    <div class="when num">2026-06-03 14:27 UTC · refresh каждые 5 мин</div>
+    <div class="when num">2026-06-03 15:12 UTC · refresh каждые 5 мин</div>
   </div>
 
   <nav class="toc-nav" id="toc-nav" aria-label="Разделы дашборда">
@@ -2328,6 +2328,45 @@ input[name="bt_tab"] { position: absolute; left: -9999px; }
       (парный арбитраж, market-neutral, без regime-фильтра — работает в любой режим).
       STR оставлена только в бэк-тесте: её edge в шорте пампов опасен в исполнении,
       а paper-trading этот риск не показывает. Все сделки — paper, без реальных денег.
+    </p>
+  </div>
+</section>
+
+
+  <h2 id="sec-forward" class="anchor">🔬 Форвард-тест — честная проверка вперёд</h2>
+  
+<section class="pp">
+  <div class="pp-head">
+    <div class="eyebrow">Единственное доказательство, которое чего-то стоит</div>
+    <div class="pp-meta">Старт теста: 2026-06-03 · прошло 0 дн · <span style="color:var(--pos);">правила заморожены ✅ не менялись</span></div>
+  </div>
+  <div class="pp-body">
+    <p class="pp-explain">
+      Всё остальное на этой странице — <strong>бэк-тест на прошлом</strong>,
+      которое мы уже знали. Это гипотеза, не доказательство. Здесь — наоборот:
+      правила <strong>заморожены</strong>, и считаются <strong>только сделки,
+      открытые ПОСЛЕ старта</strong> — вслепую, без послезнания. Сравниваем
+      «что обещал бэк-тест» и «что вышло вживую». Если факт ≥ половины обещания
+      на горизонте 2-3 месяцев — эдж настоящий. Если около нуля или в минус —
+      была подгонка, и мы сэкономили реальные деньги.
+    </p>
+    <p class="pp-explain" style="border-left:3px solid var(--neu);"><strong>Пока форвард-сделок нет — это правильно и честно.</strong> Счётчик только что запущен. Стратегии будут открывать сделки вперёд (шорты — когда режим медвежий, PAIRS — когда пара разойдётся на 2σ). Нужно ≥15 закрытых сделок на стратегию, чтобы сделать вывод. Возвращайся через пару недель.</p>
+    <div class="pp-table-wrap">
+      <table class="tbl pp-table">
+        <thead><tr>
+          <th>Стратегия</th>
+          <th style="text-align:right;">Бэк-тест обещал</th>
+          <th style="text-align:right;">По факту (форвард)</th>
+          <th style="text-align:right;">Разрыв</th>
+          <th style="text-align:right;">Вердикт</th>
+        </tr></thead>
+        <tbody><tr><td><strong>HS-S (шорт)</strong></td><td style="text-align:right;">+6.96$ / сделку<br><span class="pp-sub">30% побед</span></td><td style="text-align:right;"><span class="pp-sub">пока 0 закрытых (0 откр.) ⏳</span></td><td style="text-align:right;">—</td><td style="text-align:right; color:var(--ink-soft);"><strong>⏳ мало данных</strong></td></tr><tr><td><strong>VOL-EXP (шорт)</strong></td><td style="text-align:right;">+5.44$ / сделку<br><span class="pp-sub">38% побед</span></td><td style="text-align:right;"><span class="pp-sub">пока 0 закрытых (0 откр.) ⏳</span></td><td style="text-align:right;">—</td><td style="text-align:right; color:var(--ink-soft);"><strong>⏳ мало данных</strong></td></tr><tr><td><strong>CSMOM (лонг)</strong></td><td style="text-align:right;">+0.46$ / сделку<br><span class="pp-sub">43% побед</span></td><td style="text-align:right;"><span class="pp-sub">пока 0 закрытых (0 откр.) ⏳</span></td><td style="text-align:right;">—</td><td style="text-align:right; color:var(--ink-soft);"><strong>⏳ мало данных</strong></td></tr><tr><td><strong>PAIRS (нейтр.)</strong></td><td style="text-align:right;">+1.35$ / сделку<br><span class="pp-sub">70% побед</span></td><td style="text-align:right;"><span class="pp-sub">пока 0 закрытых (0 откр.) ⏳</span></td><td style="text-align:right;">—</td><td style="text-align:right; color:var(--ink-soft);"><strong>⏳ мало данных</strong></td></tr></tbody>
+      </table>
+    </div>
+    <p class="pp-note">
+      🟢 держится (≥½ обещания) · 🟡 слабее · 🔴 расходится · ⏳ мало данных.
+      <strong>Реальные деньги — только после «держится» на 2-3 месяцах, и то
+      крошечными суммами.</strong> До тех пор это симуляция.
     </p>
   </div>
 </section>
